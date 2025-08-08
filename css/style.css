@@ -1,0 +1,536 @@
+/*SECCIÓN 0: Body*/
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    padding-top: 0;
+  }
+
+  body {
+    background-color: white;
+  }
+
+/*SECCIÓN 1: Logo*/
+
+  .logo-container {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    overflow: visible;
+  }
+
+  @keyframes fadeSlideDown {
+      0% {
+          opacity: 0;
+          transform: translateY(-30px);
+      }
+      100% {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+
+  .logo-img {
+  height: 260px;
+  position: absolute;
+  bottom: -90px;
+  pointer-events: none;
+  object-fit: contain;
+  animation: fadeSlideDown 1.2s ease-out;
+  }
+
+/*SECCIÓN 2: Navbar*/
+  
+  .navbar-nav .nav-link {
+    color: rgb(0, 0, 0); /* color por defecto */
+    transition: color 0.7s ease;
+    }
+  
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus,
+    .navbar-nav .nav-link:active {
+    color: #e63946 !important;
+    }
+  
+    .navbar-custom {
+      background-color: lch(100% 0.01 296.81 / 0.85);
+      transition: background-color 0.3s ease;
+    }
+
+  /* Rotación por hover */
+  .nav-item.dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+  }
+
+  /* Rotación por click en móviles (cuando Bootstrap agrega la clase .show) */
+  .nav-item.dropdown.show .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+
+/*S2.1: Subcategorias navbar*/
+
+    .navbar .dropdown-toggle::after {
+      display: none !important;
+    }
+
+
+    /* Mantiene el dropdown visible mientras el mouse está sobre el botón o sobre el menú */
+    .nav-item.dropdown > .nav-link {
+        position: relative;
+        background-color: transparent; /* Color de fondo igual al del dropdown */
+        padding: 10px 20px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Estilo base: oculto pero transicionable */
+    .dropdown-menu {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0s linear 0.3s,  /* se oculta después de la transición */
+        pointer-events 0s linear 0.3s;
+      pointer-events: none;
+      margin-top: 7.2px;
+      border-radius: 0 0 10px 10px;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding-top: 0;
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+    }
+
+    /* Hover o `.show` -> muestra el menú */
+    .nav-item.dropdown:hover .dropdown-menu,
+    .nav-item.dropdown.show .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0s,
+        pointer-events 0s;
+      pointer-events: auto;
+    }
+
+    /* Flecha rotatoria al hover */
+    .nav-item.dropdown:hover .dropdown-arrow {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+
+    .dropdown-item {
+        color: black;
+        padding: 10px 20px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .dropdown-item:hover {
+        background-color: #e63946;
+        color: white;
+    }
+    
+    .nav-item.dropdown {
+        position: relative;
+    }
+      
+    .nav-item.dropdown::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 10px; /* el espacio invisible */
+    }
+      
+
+    /* Animación */
+    @keyframes fadeIn {
+        from {
+        opacity: 0;
+        transform: translateY(-5px);
+        }
+        to {
+        opacity: 1;
+        transform: translateY(0);
+        }
+    }
+    
+  
+
+/*SECCIÓN 3: Carrousel*/
+
+  .carousel-indicators li {
+  background-color: #ffffff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  }
+  /*S3.1: Flechas*/
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  
+  .carousel-control-prev {
+    left: 0.1%; /* más cerca del borde izquierdo */
+  }
+  
+  .carousel-control-next {
+    right: 0.1%; /* más cerca del borde derecho */
+  }
+  
+/* Flecha izquierda simple (‹) */
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23e63946' viewBox='0 0 16 16'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+  }
+  
+  /* Flecha derecha simple (›) */
+  .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23e63946' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  }
+    
+  .carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}
+
+  .carousel-indicators .active {
+  background-color: #e63946;
+  }
+  .animate-text {
+      animation: fadeSlideRight 0.8s ease-in-out;
+  }
+
+  @keyframes fadeSlideRight {
+  0% {
+      opacity: 0;
+      transform: translateX(60px);
+      }
+100% {
+      opacity: 1;
+      transform: translateX(0);
+      }
+  }
+
+  .carousel-caption h2 {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  }
+  .navbar-wrapper {
+    width: 100%;
+    position: fixed;
+    top: 9vh;
+    z-index: 1030;
+  }
+  .main-content {
+    position: relative;
+    width: 100%;
+    margin-top: 20vh;
+  }
+  .carousel-inner img {
+    height: 70vh;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+  }
+  
+  .carousel-item {
+    height: 70vh;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Asegurar que las imágenes se carguen correctamente */
+  .carousel-item img[src*="images/"] {
+    opacity: 1;
+  }
+  
+  /* Fallback para imágenes que no cargan */
+  .carousel-item img[src*="data:image/svg+xml"] {
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Asegurar que el carrusel funcione correctamente */
+  .carousel {
+    overflow: hidden;
+  }
+  
+  .carousel-inner {
+    width: 100%;
+    height: 70vh;
+  }
+  
+  /* Bootstrap maneja la visibilidad automáticamente */
+  .carousel-item {
+    transition: all 0.6s ease-in-out;
+  }
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    text-shadow: 2px 2px 4px black;
+  }
+  
+  /* SECCIÓN 4: Cards */
+
+  .mt-5 {
+    padding-top: 55px;
+  }
+  .mt-4 {
+    padding-top: 30px;
+  }
+  .card-img-top {
+  height: 180px;         /* Cuadrado clasico: height: 250px, Horizontal: height:180px, Vertical: height: 300px*/
+  object-fit: cover;     /* Clave para recortar sin deformar */
+    }
+
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .card-text {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .btn-custom {
+    width: 120px;
+    padding: 6px 12px;
+    border-radius: 30px;
+    background-color: #e63946;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-image: none;
+    text-decoration: none;
+  }
+  
+  .btn-custom:hover {
+    background-color: #c12738;
+    transform: scale(1.08);
+    text-decoration: none;
+    color: white;
+  }
+  
+  .card-body {
+    flex-grow: 1; /* Para que todo lo que está debajo de la imagen se expanda igual */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /*SECCIÓN 5: Footer*/
+
+  .footer {
+    background-color: #111;
+    color: #eee;
+    padding-top: 1px;
+    padding-bottom: 70px;
+    position: relative;
+  }
+  
+  .footer-logo {
+    height: 170px;
+    position: absolute;
+    object-fit: contain;
+  }
+  
+.footer-spacing {
+    padding-top: 8x;
+}
+
+  .footer h6 {
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .footer-link {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-link:hover {
+    color: #e63946;
+    text-decoration: underline;
+  }
+  
+  .mensaje-empresa {
+    font-style: italic;
+    color: #bbb;
+    margin-top: 10px;
+    font-size: 1.1rem;
+  }
+  
+  /*SECCIÓN 6: Diseño apartado técnico /detalle.js*/
+
+  #acordeon-especificaciones .card-header {
+    background-color: #f8f9fa;
+    border: none;
+  }
+  
+  #acordeon-especificaciones .btn-link {
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  #acordeon-especificaciones .btn-link:hover {
+    color: #e63946;
+  }
+
+  #acordeon-especificaciones .card {
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .arrow-icon {
+    transition: transform 0.3s ease;
+  }
+
+  button[aria-expanded="true"] .arrow-icon {
+    transform: rotate(180deg);
+  }
+
+
+  
+  
+  /* Línea vertical entre imagen y contenido */
+  .producto-info-contenedor {
+    border-left: 1px solid #ccc;
+  }
+
+/*CSS Modal Popup consulta*/
+.modal-content {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 25px;
+  border: 2px solid #676767;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h5,
+.modal-content label {
+  color: black;
+}
+
+.modal-content .form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.modal-content .btn-custom {
+  background-color: #b82323;
+  color: #fff;
+  border: none;
+  margin-top: 10px;
+}
+
+.modal-content .btn-custom:hover {
+  background-color: #9d1f1f;
+}
+
+/* Estilos adicionales para la página de detalle del producto */
+.producto-detalle-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.producto-detalle-card .card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.producto-detalle-card:hover .card-img-top {
+  transform: scale(1.02);
+}
+
+.text-primary {
+  color: #e63946 !important;
+}
+
+.btn-outline-secondary {
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+/* Clase para elementos solo para lectores de pantalla */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+

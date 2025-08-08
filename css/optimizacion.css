@@ -1,0 +1,413 @@
+/* Optimización de Imágenes */
+
+/* Lazy Loading para imágenes */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+/* Placeholder para imágenes mientras cargan */
+.image-placeholder {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Optimización de imágenes de fondo */
+.bg-image-optimized {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+/* Responsive images */
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Optimización para diferentes tamaños de pantalla */
+@media (max-width: 576px) {
+  .responsive-image {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .responsive-image {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .responsive-image {
+    max-width: 100%;
+  }
+}
+
+/* Optimización de logos */
+.logo-optimized {
+  max-height: 200px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Optimización de imágenes de productos */
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Optimización de imágenes de carrusel */
+.carousel-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 250px;
+  }
+}
+
+/* Compresión y optimización visual */
+.image-compressed {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Preload para imágenes críticas */
+.preload-image {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* Optimización de imágenes de fondo con lazy loading */
+.bg-lazy {
+  background-image: none;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.bg-lazy.loaded {
+  background-image: var(--bg-image);
+}
+
+/* Skeleton loading para imágenes */
+.skeleton-image {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Optimización para WebP con fallback */
+.webp-image {
+  display: block;
+}
+
+.no-webp .webp-image {
+  display: none;
+}
+
+/* Optimización de imágenes de contacto */
+.contact-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Optimización de imágenes de equipo */
+.team-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e63946;
+}
+
+/* Optimización de imágenes de servicios */
+.service-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* ===== OPTIMIZACIÓN DE VIDEOS ===== */
+
+/* Contenedor de video optimizado */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 20px 0;
+  background: #000;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+/* Overlay del video */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.video-overlay:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+.video-overlay i {
+  font-size: 4rem;
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.video-overlay:hover i {
+  transform: scale(1.1);
+}
+
+/* Controles de video */
+.video-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-container:hover .video-controls {
+  opacity: 1;
+}
+
+.video-btn {
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.video-btn:hover {
+  background: rgba(255,255,255,1);
+  transform: scale(1.1);
+}
+
+.video-btn:focus {
+  outline: 2px solid #e63946;
+  outline-offset: 2px;
+}
+
+/* Estados de video */
+.video-container.playing .video-overlay {
+  display: none;
+}
+
+.video-container.playing .video-controls {
+  opacity: 1;
+}
+
+/* Responsive para videos */
+@media (max-width: 768px) {
+  .video-container {
+    height: 250px;
+  }
+  
+  .video-overlay i {
+    font-size: 3rem;
+  }
+  
+  .video-controls {
+    bottom: 10px;
+  }
+  
+  .video-btn {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 576px) {
+  .video-container {
+    height: 200px;
+  }
+  
+  .video-overlay i {
+    font-size: 2.5rem;
+  }
+}
+
+/* Optimización de video para conexiones lentas */
+.video-low-bandwidth {
+  filter: brightness(0.8) contrast(1.2);
+}
+
+/* Skeleton para video mientras carga */
+.video-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Error de video */
+.video-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  z-index: 30;
+}
+
+.video-error .alert {
+  background: rgba(255,193,7,0.9);
+  border: none;
+  color: #856404;
+  margin: 0;
+  border-radius: 8px;
+}
+
+/* ===== OPTIMIZACIONES ADICIONALES ===== */
+
+/* Optimización de rendimiento */
+.performance-optimized {
+  will-change: auto;
+  contain: layout style paint;
+}
+
+/* Optimización de animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .video-overlay i {
+    transition: none;
+  }
+  
+  .video-btn {
+    transition: none;
+  }
+}
+
+/* Optimización para modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .video-container {
+    background: #1a1a1a;
+  }
+  
+  .video-overlay {
+    background: rgba(0,0,0,0.6);
+  }
+  
+  .video-btn {
+    background: rgba(255,255,255,0.8);
+    color: #333;
+  }
+}
+
+/* Optimización de accesibilidad */
+.video-container:focus-within {
+  outline: 2px solid #e63946;
+  outline-offset: 2px;
+}
+
+/* Optimización de carga progresiva */
+.video-progressive {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.video-progressive.loaded {
+  opacity: 1;
+}
+
+/* Optimización de memoria */
+.video-memory-optimized {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Optimización para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .video-controls {
+    opacity: 1;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 20px;
+  }
+  
+  .video-btn {
+    width: 45px;
+    height: 45px;
+  }
+}

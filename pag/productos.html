@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Productos | JC3Design </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dark-mode.css">
+  <link rel="stylesheet" href="../css/optimizacion.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- SECCIÓN 1: Logo -->
+  <header>
+    <div class="logo-container d-none d-md-flex" id="logoBox">
+      <img src="../images/logo.png" alt="JC3Design logo" class="logo-img">
+    </div>
+
+    <!-- SECCIÓN 2: Navbar -->
+    <nav class="navbar-wrapper" data-aos="fade-left" role="navigation" aria-label="Navegación principal">
+    <nav class="navbar navbar-expand-md navbar-light navbar-custom">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--CATEGORÍAS-->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item" data-aos="fade-right"><a class="nav-link" href="../index.html">Inicio</a></li>
+            <li class="nav-item dropdown" data-aos="fade-right">
+              <a class="nav-link dropdown-toggle" href="productos.html#" id="productosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Productos
+                <i class="fas fa-chevron-down ml-1 dropdown-arrow"></i>
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="productos.html?tipo=productos3d">Piezas 3D</a>
+                <a class="dropdown-item" href="productos.html?tipo=muebles">Muebles</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown" data-aos="fade-right">
+              <a class="nav-link dropdown-toggle" href="cotizacion-diseno.html" id="serviciosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Servicios
+                <i class="fas fa-chevron-down ml-1 dropdown-arrow"></i>
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="cotizacion-diseno.html">Cotización Diseño</a>
+                <a class="dropdown-item" href="cotizacion-mueble.html">Cotización Mueble</a>
+                <a class="dropdown-item" href="cotizacion-3d.html">Cotización 3D</a>
+              </div>
+            </li>
+            <li class="nav-item" data-aos="fade-right"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+            <li class="nav-item" data-aos="fade-right"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  </header>
+
+  <!--SECCIÓN 3: Listado productos-->
+  <main class="container mt-5 pt-5" role="main">
+    <section aria-labelledby="productos-titulo" data-aos="fade-up">
+      <div class="text-center mb-5">
+        <h1 id="productos-titulo" class="display-4 font-weight-bold text-dark mb-3">Nuestros Productos</h1>
+        <p class="lead text-muted">Descubre nuestra colección de muebles personalizados y piezas 3D de alta calidad</p>
+      </div>
+      <div class="row" id="productos-container">
+        <!-- Aquí se insertarán las cards con JS -->
+      </div>
+    </section>
+  </main>
+
+<!--SECCIÓN 4: Footer-->
+<footer class="footer text-white mt-5" role="contentinfo">
+  <div class="container py-4">
+    <div class="row">
+
+      <!-- Logo o nombre -->
+      <div class="col-md-4 mb-4 mb-md-0 d-flex align-items-center" data-aos="fade-right">
+        <img src="../images/logo_blanco.png" alt="JC3Design Logo" class="footer-logo mr-2">
+        <span class="h5 mb-0"></span>
+      </div>
+
+      <!-- Menú de navegación -->
+      <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up">
+        <h6 class="text-uppercase mb-3">Enlaces</h6>
+        <ul class="list-unstyled">
+          <li><a href="../index.html" class="footer-link">Inicio</a></li>
+          <li><a href="productos.html" class="footer-link">Productos</a></li>
+          <li><a href="cotizacion-diseno.html" class="footer-link">Servicios</a></li>
+          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+          <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales / contacto -->
+      <div class="col-md-4" data-aos="fade-up">
+        <h6 class="text-uppercase mb-3">Contactanos</h6>
+        <ul class="list-unstyled">
+          <li><i class="fab fa-facebook-f mr-2"></i><a href="#" target="_blank" class="footer-link">Facebook</a></li>
+          <li><i class="fab fa-instagram mr-2"></i><a href="https://www.instagram.com/masters_muebles/" target="_blank" class="footer-link">Instagram</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/+56912345678" target="_blank" class="footer-link">WhatsApp</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:contacto@jc3design.cl" target="_blank" class="footer-link">Email</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mensaje final / Copyright-->
+    <div class="row footer-spacing" data-aos="fade-right">
+      <div class="col-12 text-center">
+        <p class="mensaje-empresa">"Diseñamos el futuro, amueblamos tu presente."</p>
+        <small>&copy; 2025 JC3Design - Desarrollado por Tomás Gutiérrez</small>
+      </div>
+    </div>
+
+</footer>
+  
+  <!-- SCRIPTS: -->
+  
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000, // duración de la animación
+        once: false      // animar solo la primera vez que aparece
+      });
+    </script>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/dark-mode.js"></script>
+  <script src="../js/optimizacion.js"></script>
+  <script src="../js/productos.js"></script>
+</body>
+</html>

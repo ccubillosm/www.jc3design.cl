@@ -1,0 +1,645 @@
+/* Variables CSS para modo oscuro */
+:root {
+  /* Colores modo claro */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #000000;
+  --text-secondary: #555555;
+  --navbar-bg: lch(100% 0.01 296.81 / 0.85);
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.125);
+  --footer-bg: #111111;
+  --footer-text: #eeeeee;
+  --footer-link: #cccccc;
+  --accent-color: #e63946;
+  --accent-hover: #c12738;
+  --dropdown-bg: rgba(255, 255, 255, 0.85);
+  --dropdown-text: #000000;
+  --logo-bg: #ffffff;
+  --modal-bg: #f9f9f9;
+  --modal-text: #000000;
+  --shadow: rgba(0, 0, 0, 0.15);
+  --shadow-light: rgba(0, 0, 0, 0.05);
+}
+
+/* Variables para modo oscuro */
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --navbar-bg: rgba(45, 45, 45, 0.95);
+  --card-bg: #2d2d2d;
+  --card-border: rgba(255, 255, 255, 0.125);
+  --footer-bg: #0a0a0a;
+  --footer-text: #ffffff;
+  --footer-link: #bbbbbb;
+  --accent-color: #ff4757;
+  --accent-hover: #ff3742;
+  --dropdown-bg: rgba(45, 45, 45, 0.95);
+  --dropdown-text: #ffffff;
+  --logo-bg: #1a1a1a;
+  --modal-bg: #2d2d2d;
+  --modal-text: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+}
+
+/* Transiciones suaves para cambio de tema */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ===== MEJORAS PARA FORMULARIOS Y DROPDOWNS ===== */
+
+/* Mejoras para dropdowns y formularios */
+.form-control {
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 2px solid #e1e5e9;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    height: auto;
+    min-height: 45px;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.form-control option {
+    padding: 12px 16px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+select.form-control {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%234a5568' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 20px 15px;
+    padding-right: 45px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Estilos específicos para dark mode */
+[data-theme="dark"] .form-control {
+    border-color: var(--card-border);
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .form-control:focus {
+    border-color: #4dabf7;
+    box-shadow: 0 0 0 0.2rem rgba(77, 171, 247, 0.25);
+}
+
+[data-theme="dark"] select.form-control {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23a0aec0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+}
+
+[data-theme="dark"] .form-control option {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+
+/* Estilos para las páginas de cotización */
+.cotizacion-form .form-group label {
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.cotizacion-form .form-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    background-color: var(--card-bg);
+}
+
+.cotizacion-form .form-section h4 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--card-border);
+}
+
+/* ===== ANIMACIONES PARA NOTIFICACIONES ===== */
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Estilos adicionales para notificaciones */
+.notificacion-exito,
+.notificacion-error {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.notificacion-exito:hover,
+.notificacion-error:hover {
+    transform: translateX(-5px);
+}
+
+/* Aplicación de variables al body */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Logo container */
+.logo-container {
+  background-color: var(--logo-bg);
+}
+
+/* Navbar */
+.navbar-custom {
+  background-color: var(--navbar-bg);
+}
+
+.navbar-nav .nav-link {
+  color: var(--text-primary);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:active {
+  color: var(--accent-color) !important;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  background-color: var(--dropdown-bg);
+  backdrop-filter: blur(10px);
+}
+
+.dropdown-item {
+  color: var(--dropdown-text);
+}
+
+.dropdown-item:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA MODO OSCURO EN NAVEGACIÓN ===== */
+
+/* Texto del menú en modo oscuro */
+[data-theme="dark"] .navbar-nav .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .navbar-nav .nav-link:hover,
+[data-theme="dark"] .navbar-nav .nav-link:focus,
+[data-theme="dark"] .navbar-nav .nav-link:active {
+  color: #e63946 !important;
+}
+
+/* Brand/Logo en modo oscuro */
+[data-theme="dark"] .navbar-brand {
+  color: #ffffff !important;
+}
+
+/* Toggler para móviles en modo oscuro */
+[data-theme="dark"] .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Dropdowns en modo oscuro */
+[data-theme="dark"] .dropdown-menu {
+  background-color: var(--dropdown-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .dropdown-item {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .dropdown-item:hover,
+[data-theme="dark"] .dropdown-item:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff !important;
+}
+
+/* Flecha del dropdown en modo oscuro */
+[data-theme="dark"] .dropdown-arrow {
+  color: #ffffff;
+}
+
+/* Asegurar que todos los textos del navbar sean visibles */
+[data-theme="dark"] .navbar * {
+  color: inherit;
+}
+
+[data-theme="dark"] .navbar-text {
+  color: #ffffff !important;
+}
+
+/* Cualquier link o texto adicional en el navbar */
+[data-theme="dark"] .navbar a:not(.nav-link):not(.dropdown-item) {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .navbar .navbar-nav .nav-item .nav-link {
+  color: #ffffff !important;
+}
+
+/* Cards */
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+}
+
+.card-text {
+  color: var(--text-secondary);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+.footer-link {
+  color: var(--footer-link);
+}
+
+.footer-link:hover {
+  color: var(--accent-color);
+}
+
+.mensaje-empresa {
+  color: var(--footer-link);
+}
+
+/* Modal */
+.modal-content {
+  background-color: var(--modal-bg);
+  color: var(--modal-text);
+}
+
+.modal-content h5,
+.modal-content label {
+  color: var(--modal-text);
+}
+
+/* Botón de cambio de tema */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+  background: var(--accent-color);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.theme-toggle:hover {
+  background: var(--accent-hover);
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+.theme-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.3);
+}
+
+/* Iconos específicos para cada tema */
+.theme-toggle .fa-sun {
+  display: none;
+}
+
+.theme-toggle .fa-moon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .fa-sun {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+  display: none;
+}
+
+/* Ajustes específicos para modo oscuro */
+[data-theme="dark"] .card:hover {
+  box-shadow: 0 10px 20px var(--shadow);
+}
+
+[data-theme="dark"] .btn-custom {
+  background-color: var(--accent-color);
+}
+
+[data-theme="dark"] .btn-custom:hover {
+  background-color: var(--accent-hover);
+}
+
+[data-theme="dark"] .text-primary {
+  color: var(--accent-color) !important;
+}
+
+/* Ajustes para elementos específicos */
+[data-theme="dark"] .producto-info-contenedor {
+  border-left-color: #444;
+}
+
+[data-theme="dark"] #acordeon-especificaciones .card-header {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] #acordeon-especificaciones .btn-link {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] #acordeon-especificaciones .btn-link:hover {
+  color: var(--accent-color);
+}
+
+[data-theme="dark"] #acordeon-especificaciones .card {
+  background-color: var(--card-bg);
+  box-shadow: 0 1px 4px var(--shadow-light);
+}
+
+/* ===== ESTILOS PARA PÁGINAS ESPECÍFICAS ===== */
+
+/* === PÁGINAS DE COTIZACIÓN (servicios.css) === */
+[data-theme="dark"] .hero-section {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, #1a1a1a 100%);
+}
+
+[data-theme="dark"] .hero-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .hero-subtitle {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .servicio-card {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+[data-theme="dark"] .servicio-card:hover {
+  box-shadow: 0 8px 25px var(--shadow);
+}
+
+[data-theme="dark"] .servicio-card h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .servicio-card p {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .cotizacion-card {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+[data-theme="dark"] .form-section {
+  border-bottom-color: var(--card-border);
+}
+
+[data-theme="dark"] .form-section h4 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-group label {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .form-control {
+  background-color: var(--bg-secondary);
+  border-color: var(--card-border);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-control:focus {
+  background-color: var(--bg-secondary);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-check-label {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .success-message {
+  background: rgba(40, 167, 69, 0.2);
+  border-color: #28a745;
+  color: #28a745;
+}
+
+[data-theme="dark"] .error-message {
+  background: rgba(220, 53, 69, 0.2);
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+/* === PÁGINA DE CONTACTO (contacto.css) === */
+[data-theme="dark"] .contacto-card {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+[data-theme="dark"] .contacto-card:hover {
+  box-shadow: 0 8px 25px var(--shadow);
+}
+
+[data-theme="dark"] .contacto-card h4 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .contacto-card p {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .contacto-form-card {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+[data-theme="dark"] .red-social-link {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  color: var(--text-primary);
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+[data-theme="dark"] .red-social-link:hover {
+  box-shadow: 0 8px 25px var(--shadow);
+  color: var(--accent-color);
+}
+
+/* === PÁGINA NOSOTROS (nosotros.css) === */
+[data-theme="dark"] .section-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .historia-text {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .logro-item span {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .mision-card,
+[data-theme="dark"] .vision-card {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+[data-theme="dark"] .mision-card h3,
+[data-theme="dark"] .vision-card h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .mision-card p,
+[data-theme="dark"] .vision-card p {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .valor-card {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+[data-theme="dark"] .valor-card:hover {
+  box-shadow: 0 8px 25px var(--shadow);
+}
+
+[data-theme="dark"] .valor-card h4 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .valor-card p {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .equipo-card {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+[data-theme="dark"] .equipo-card h4 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .descripcion {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .tecnologia-card {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+[data-theme="dark"] .tecnologia-card:hover {
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+[data-theme="dark"] .tecnologia-card h5 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .tecnologia-card p {
+  color: var(--text-secondary);
+}
+
+/* === AJUSTES GENERALES ADICIONALES === */
+[data-theme="dark"] .text-muted {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .badge {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+[data-theme="dark"] .invalid-feedback {
+  color: #ff6b6b;
+}
+
+[data-theme="dark"] .valid-feedback {
+  color: #51cf66;
+}
+
+/* Animación para el cambio de tema */
+@keyframes themeTransition {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: themeTransition 0.3s ease;
+}
+
+/* Responsive para el botón de tema */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+}

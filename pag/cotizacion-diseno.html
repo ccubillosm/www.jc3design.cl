@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Cotización de Diseño | JC3Design </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dark-mode.css">
+  <link rel="stylesheet" href="../css/servicios.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- SECCIÓN 1: Logo -->
+  <header>
+    <div class="logo-container d-none d-md-flex" id="logoBox">
+      <img src="../images/logo.png" alt="JC3Design logo" class="logo-img">
+    </div>
+
+    <!-- SECCIÓN 2: Navbar -->
+    <nav class="navbar-wrapper" data-aos="fade-left" role="navigation" aria-label="Navegación principal">
+      <nav class="navbar navbar-expand-md navbar-light navbar-custom">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!--CATEGORÍAS-->
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item" data-aos="fade-right"><a class="nav-link" href="../index.html">Inicio</a></li>
+              <li class="nav-item dropdown" data-aos="fade-right">
+                <a class="nav-link dropdown-toggle" href="productos.html#" id="productosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Productos
+                  <i class="fas fa-chevron-down ml-1 dropdown-arrow"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="productos.html?tipo=productos3d">Piezas 3D</a>
+                  <a class="dropdown-item" href="productos.html?tipo=muebles">Muebles</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown" data-aos="fade-right">
+                <a class="nav-link dropdown-toggle" href="cotizacion-diseno.html" id="serviciosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Servicios
+                  <i class="fas fa-chevron-down ml-1 dropdown-arrow"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="cotizacion-diseno.html">Cotización Diseño</a>
+                  <a class="dropdown-item" href="cotizacion-mueble.html">Cotización Mueble</a>
+                  <a class="dropdown-item" href="cotizacion-3d.html">Cotización 3D</a>
+                </div>
+              </li>
+              <li class="nav-item" data-aos="fade-right"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+              <li class="nav-item" data-aos="fade-right"><a class="nav-link" href="contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN 3: Contenido Principal -->
+  <main class="container mt-5 pt-5" role="main">
+    <h1 class="sr-only">Cotización de Diseño - JC3Design</h1>
+    
+    <!-- Hero Section -->
+    <section class="hero-section text-center mb-5" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <i class="fas fa-palette hero-icon mb-4"></i>
+          <h2 class="hero-title">Cotización de Diseño</h2>
+          <p class="hero-subtitle">Transformamos tus ideas en diseños únicos y funcionales</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios de Diseño -->
+    <section class="servicios-section mb-5" data-aos="fade-up">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="servicio-card text-center">
+            <i class="fas fa-home servicio-icon"></i>
+            <h3>Diseño de Interiores</h3>
+            <p>Planificación completa de espacios residenciales y comerciales</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="servicio-card text-center">
+            <i class="fas fa-cube servicio-icon"></i>
+            <h3>Diseño 3D</h3>
+            <p>Modelado y visualización 3D de proyectos arquitectónicos</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="servicio-card text-center">
+            <i class="fas fa-pencil-ruler servicio-icon"></i>
+            <h3>Planos Técnicos</h3>
+            <p>Dibujo técnico y planos detallados para construcción</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de Cotización -->
+    <section class="cotizacion-section" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="cotizacion-card">
+            <h3 class="text-center mb-4">Solicita tu Cotización de Diseño</h3>
+            <form id="formulario-cotizacion" class="cotizacion-form">
+              <!-- Información Personal -->
+              <div class="form-section">
+                <h4><i class="fas fa-user mr-2"></i>Información Personal</h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="nombre">Nombre completo *</label>
+                      <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="email">Email *</label>
+                      <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="telefono">Teléfono</label>
+                      <input type="tel" class="form-control" id="telefono" name="telefono">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="servicio_id">Tipo de Servicio *</label>
+                      <select class="form-control" id="servicio_id" name="servicio_id" required>
+                        <option value="">Selecciona un servicio</option>
+                        <!-- Opciones se cargarán dinámicamente -->
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Detalles del Proyecto -->
+              <div class="form-section">
+                <h4><i class="fas fa-project-diagram mr-2"></i>Detalles del Proyecto</h4>
+                <div class="form-group">
+                  <label for="detalles_proyecto">Descripción del proyecto *</label>
+                  <textarea class="form-control" id="detalles_proyecto" name="detalles_proyecto" rows="4" placeholder="Describe tu proyecto de diseño: tipo de espacio, estilo preferido, necesidades específicas, etc." required></textarea>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="presupuesto_estimado">Presupuesto Estimado</label>
+                      <select class="form-control" id="presupuesto_estimado" name="presupuesto_estimado">
+                        <option value="">Selecciona una opción</option>
+                        <option value="$10.000 - $50.000">$10.000 - $50.000</option>
+                        <option value="$50.000 - $100.000">$50.000 - $100.000</option>
+                        <option value="$100.000 - $500.000">$100.000 - $500.000</option>
+                        <option value="$500.000 - $1.000.000">$500.000 - $1.000.000</option>
+                        <option value="Más de $1.000.000">Más de $1.000.000</option>
+                        <option value="Por definir">Por definir</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="fecha_requerida">Fecha Requerida</label>
+                      <input type="date" class="form-control" id="fecha_requerida" name="fecha_requerida">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mensaje Adicional -->
+              <div class="form-section">
+                <h4><i class="fas fa-comment mr-2"></i>Información Adicional</h4>
+                <div class="form-group">
+                  <label for="mensaje">Mensaje (opcional)</label>
+                  <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="¿Hay algo más que quieras comentarnos sobre tu proyecto?"></textarea>
+                </div>
+              </div>
+
+              <!-- Botones -->
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-custom btn-lg">
+                  <i class="fas fa-paper-plane mr-2"></i>Solicitar Cotización
+                </button>
+                <a href="../index.html" class="btn btn-outline-secondary btn-lg ml-3">
+                  <i class="fas fa-arrow-left mr-2"></i>Volver al Inicio
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!--SECCIÓN 4: Footer-->
+<footer class="footer text-white mt-5" role="contentinfo">
+  <div class="container py-4">
+    <div class="row">
+
+      <!-- Logo o nombre -->
+      <div class="col-md-4 mb-4 mb-md-0 d-flex align-items-center" data-aos="fade-right">
+        <img src="../images/logo_blanco.png" alt="JC3Design Logo" class="footer-logo mr-2">
+        <span class="h5 mb-0"></span>
+      </div>
+
+      <!-- Menú de navegación -->
+      <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up">
+        <h6 class="text-uppercase mb-3">Enlaces</h6>
+        <ul class="list-unstyled">
+          <li><a href="../index.html" class="footer-link">Inicio</a></li>
+          <li><a href="productos.html" class="footer-link">Productos</a></li>
+          <li><a href="cotizacion-diseno.html" class="footer-link">Servicios</a></li>
+          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+          <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales / contacto -->
+      <div class="col-md-4" data-aos="fade-up">
+        <h6 class="text-uppercase mb-3">Contactanos</h6>
+        <ul class="list-unstyled">
+          <li><i class="fab fa-facebook-f mr-2"></i><a href="#" target="_blank" class="footer-link">Facebook</a></li>
+          <li><i class="fab fa-instagram mr-2"></i><a href="https://www.instagram.com/masters_muebles/" target="_blank" class="footer-link">Instagram</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/+56912345678" target="_blank" class="footer-link">WhatsApp</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:contacto@jc3design.cl" target="_blank" class="footer-link">Email</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mensaje final / Copyright-->
+    <div class="row footer-spacing" data-aos="fade-right">
+      <div class="col-12 text-center">
+        <p class="mensaje-empresa">"Diseñamos el futuro, amueblamos tu presente."</p>
+        <small>&copy; 2025 JC3Design - Desarrollado por Tomás Gutiérrez</small>
+      </div>
+    </div>
+
+</footer>
+
+<!-- SCRIPTS: -->
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: false
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/dark-mode.js"></script>
+  <script src="../js/cotizacionServicios.js"></script>
+
+</body>
+</html>

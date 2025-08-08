@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Nosotros | JC3Design </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dark-mode.css">
+  <link rel="stylesheet" href="../css/nosotros.css">
+  <link rel="stylesheet" href="../css/optimizacion.css">
+  <link rel="stylesheet" href="../css/dark-mode.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- SECCIÓN 1: Logo -->
+  <header>
+    <div class="logo-container d-none d-md-flex" id="logoBox">
+      <img src="../images/logo.png" alt="JC3Design logo" class="logo-img">
+    </div>
+
+    <!-- SECCIÓN 2: Navbar -->
+    <nav class="navbar-wrapper" data-aos="fade-left" role="navigation" aria-label="Navegación principal">
+      <nav class="navbar navbar-expand-md navbar-light navbar-custom">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!--CATEGORÍAS-->
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item" data-aos="fade-right"><a class="nav-link" href="../index.html">Inicio</a></li>
+              <li class="nav-item dropdown" data-aos="fade-right">
+                <a class="nav-link dropdown-toggle" href="productos.html#" id="productosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Productos
+                  <i class="fas fa-chevron-down ml-1 dropdown-arrow"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="productos.html?tipo=productos3d">Piezas 3D</a>
+                  <a class="dropdown-item" href="productos.html?tipo=muebles">Muebles</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown" data-aos="fade-right">
+                <a class="nav-link dropdown-toggle" href="cotizacion-diseno.html" id="serviciosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Servicios
+                  <i class="fas fa-chevron-down ml-1 dropdown-arrow"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="cotizacion-diseno.html">Cotización Diseño</a>
+                  <a class="dropdown-item" href="cotizacion-mueble.html">Cotización Mueble</a>
+                  <a class="dropdown-item" href="cotizacion-3d.html">Cotización 3D</a>
+                </div>
+              </li>
+              <li class="nav-item" data-aos="fade-right"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+              <li class="nav-item" data-aos="fade-right"><a class="nav-link" href="contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN 3: Contenido Principal -->
+  <main class="container mt-5 pt-5" role="main">
+    <h1 class="sr-only">Nosotros - JC3Design</h1>
+    
+    <!-- Hero Section -->
+    <section class="hero-section text-center mb-5" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <i class="fas fa-users hero-icon mb-4"></i>
+          <h2 class="hero-title">Sobre JC3Design</h2>
+          <p class="hero-subtitle">Diseñamos el futuro, amueblamos tu presente</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Historia -->
+    <section class="historia-section mb-5" data-aos="fade-up">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="historia-content">
+            <h3 class="section-title">Nuestra Historia</h3>
+            <p class="historia-text">
+              JC3Design nació de la pasión por el diseño y la innovación. Fundada en 2020, 
+              comenzamos como un pequeño taller de muebles artesanales, evolucionando hacia 
+              una empresa integral que combina técnicas tradicionales con tecnología de vanguardia.
+            </p>
+            <p class="historia-text">
+              Nuestro compromiso con la calidad y la personalización nos ha llevado a expandir 
+              nuestros servicios, incluyendo diseño de interiores, impresión 3D y fabricación 
+              de muebles a medida.
+            </p>
+            <div class="logros">
+              <div class="logro-item">
+                <i class="fas fa-trophy"></i>
+                <span>+150 proyectos completados</span>
+              </div>
+              <div class="logro-item">
+                <i class="fas fa-heart"></i>
+                <span>100% clientes satisfechos</span>
+              </div>
+              <div class="logro-item">
+                <i class="fas fa-star"></i>
+                <span>5 años de experiencia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="historia-image">
+            <img src="../images/dise_1.jpg" alt="Nuestro taller" class="img-fluid rounded responsive-image lazy-image" data-src="../images/dise_1.jpg">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Misión y Valores -->
+    <section class="mision-valores-section mb-5" data-aos="fade-up">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="mision-card">
+            <div class="card-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>Nuestra Misión</h3>
+            <p>
+              Transformar espacios y crear soluciones únicas que combinen funcionalidad, 
+              estética y sostenibilidad. Nos esforzamos por superar las expectativas 
+              de nuestros clientes en cada proyecto.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="vision-card">
+            <div class="card-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <h3>Nuestra Visión</h3>
+            <p>
+              Ser líderes en el diseño y fabricación de soluciones personalizadas, 
+              reconocidos por nuestra innovación, calidad y compromiso con la 
+              satisfacción del cliente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="valores-section mb-5" data-aos="fade-up">
+      <h3 class="text-center mb-5">Nuestros Valores</h3>
+      <div class="row">
+        <div class="col-md-3 mb-4">
+          <div class="valor-card text-center">
+            <i class="fas fa-gem valor-icon"></i>
+            <h4>Calidad</h4>
+            <p>Compromiso con la excelencia en cada detalle</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="valor-card text-center">
+            <i class="fas fa-lightbulb valor-icon"></i>
+            <h4>Innovación</h4>
+            <p>Búsqueda constante de nuevas soluciones</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="valor-card text-center">
+            <i class="fas fa-handshake valor-icon"></i>
+            <h4>Confianza</h4>
+            <p>Relaciones duraderas basadas en la honestidad</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="valor-card text-center">
+            <i class="fas fa-leaf valor-icon"></i>
+            <h4>Sostenibilidad</h4>
+            <p>Respeto por el medio ambiente en nuestros procesos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="equipo-section mb-5" data-aos="fade-up">
+      <h3 class="text-center mb-5">Nuestro Equipo</h3>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="equipo-card text-center">
+            <div class="equipo-avatar">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h4>Tomás Gutiérrez</h4>
+            <p class="cargo">Fundador & Diseñador Principal</p>
+            <p class="descripcion">
+              Especialista en diseño de interiores y fabricación de muebles. 
+              Más de 10 años de experiencia en el sector.
+            </p>
+            <div class="especialidades">
+              <span class="badge badge-primary">Diseño</span>
+              <span class="badge badge-primary">Muebles</span>
+              <span class="badge badge-primary">3D</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="equipo-card text-center">
+            <div class="equipo-avatar">
+              <i class="fas fa-user-cog"></i>
+            </div>
+            <h4>Equipo Técnico</h4>
+            <p class="cargo">Especialistas en Fabricación</p>
+            <p class="descripcion">
+              Profesionales expertos en carpintería, impresión 3D y 
+              técnicas de fabricación avanzadas.
+            </p>
+            <div class="especialidades">
+              <span class="badge badge-primary">Carpintería</span>
+              <span class="badge badge-primary">3D Printing</span>
+              <span class="badge badge-primary">Instalación</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="equipo-card text-center">
+            <div class="equipo-avatar">
+              <i class="fas fa-user-headset"></i>
+            </div>
+            <h4>Atención al Cliente</h4>
+            <p class="cargo">Asesores Especializados</p>
+            <p class="descripcion">
+              Equipo dedicado a brindar la mejor experiencia de servicio 
+              y acompañamiento en cada proyecto.
+            </p>
+            <div class="especialidades">
+              <span class="badge badge-primary">Asesoría</span>
+              <span class="badge badge-primary">Seguimiento</span>
+              <span class="badge badge-primary">Soporte</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section class="tecnologias-section mb-5" data-aos="fade-up">
+      <h3 class="text-center mb-5">Nuestras Tecnologías</h3>
+      <div class="row">
+        <div class="col-md-3 mb-4">
+          <div class="tecnologia-card text-center">
+            <i class="fas fa-print tecnologia-icon"></i>
+            <h5>Impresión 3D</h5>
+            <p>FDM, SLA, Resina</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="tecnologia-card text-center">
+            <i class="fas fa-drafting-compass tecnologia-icon"></i>
+            <h5>Diseño CAD</h5>
+            <p>AutoCAD, SketchUp, Fusion 360</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="tecnologia-card text-center">
+            <i class="fas fa-cogs tecnologia-icon"></i>
+            <h5>CNC</h5>
+            <p>Corte preciso, grabado láser</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="tecnologia-card text-center">
+            <i class="fas fa-palette tecnologia-icon"></i>
+            <h5>Renderizado</h5>
+            <p>Visualizaciones fotorrealistas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section text-center" data-aos="fade-up">
+      <div class="cta-content">
+        <h3>¿Listo para comenzar tu proyecto?</h3>
+        <p>Contáctanos y descubre cómo podemos hacer realidad tus ideas</p>
+        <div class="cta-buttons">
+          <a href="contacto.html" class="btn btn-custom btn-lg mr-3">
+            <i class="fas fa-envelope mr-2"></i>Contactar
+          </a>
+          <a href="cotizacion-diseno.html" class="btn btn-outline-secondary btn-lg">
+            <i class="fas fa-calculator mr-2"></i>Solicitar Cotización
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!--SECCIÓN 4: Footer-->
+<footer class="footer text-white mt-5" role="contentinfo">
+  <div class="container py-4">
+    <div class="row">
+
+      <!-- Logo o nombre -->
+      <div class="col-md-4 mb-4 mb-md-0 d-flex align-items-center" data-aos="fade-right">
+        <img src="../images/logo_blanco.png" alt="JC3Design Logo" class="footer-logo mr-2">
+        <span class="h5 mb-0"></span>
+      </div>
+
+      <!-- Menú de navegación -->
+      <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up">
+        <h6 class="text-uppercase mb-3">Enlaces</h6>
+        <ul class="list-unstyled">
+          <li><a href="../index.html" class="footer-link">Inicio</a></li>
+          <li><a href="productos.html" class="footer-link">Productos</a></li>
+          <li><a href="cotizacion-diseno.html" class="footer-link">Servicios</a></li>
+          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+          <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales / contacto -->
+      <div class="col-md-4" data-aos="fade-up">
+        <h6 class="text-uppercase mb-3">Contactanos</h6>
+        <ul class="list-unstyled">
+          <li><i class="fab fa-facebook-f mr-2"></i><a href="#" target="_blank" class="footer-link">Facebook</a></li>
+          <li><i class="fab fa-instagram mr-2"></i><a href="https://www.instagram.com/masters_muebles/" target="_blank" class="footer-link">Instagram</a></li>
+          <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/+56912345678" target="_blank" class="footer-link">WhatsApp</a></li>
+          <li><i class="fas fa-envelope mr-2"></i><a href="mailto:contacto@jc3design.cl" target="_blank" class="footer-link">Email</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mensaje final / Copyright-->
+    <div class="row footer-spacing" data-aos="fade-right">
+      <div class="col-12 text-center">
+        <p class="mensaje-empresa">"Diseñamos el futuro, amueblamos tu presente."</p>
+        <small>&copy; 2025 JC3Design - Desarrollado por Tomás Gutiérrez</small>
+      </div>
+    </div>
+
+</footer>
+
+<!-- SCRIPTS: -->
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: false
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/dark-mode.js"></script>
+  <script src="../js/optimizacion.js"></script>
+
+</body>
+</html>

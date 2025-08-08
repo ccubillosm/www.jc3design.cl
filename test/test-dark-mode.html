@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Modo Oscuro | JC3Design</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dark-mode.css">
+  <link rel="stylesheet" href="css/servicios.css">
+  <link rel="stylesheet" href="css/contacto.css">
+  <link rel="stylesheet" href="css/nosotros.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1>Test del Modo Oscuro</h1>
+    <p>Esta página contiene elementos de todas las páginas para probar el modo oscuro.</p>
+    
+    <!-- Elementos de cotización -->
+    <section class="mb-5">
+      <h2>Elementos de Cotización</h2>
+      <div class="hero-section text-center mb-4">
+        <i class="fas fa-palette hero-icon mb-4"></i>
+        <h2 class="hero-title">Test Hero Section</h2>
+        <p class="hero-subtitle">Esto debería cambiar de color en modo oscuro</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4">
+          <div class="servicio-card text-center">
+            <i class="fas fa-home servicio-icon"></i>
+            <h3>Servicio Test</h3>
+            <p>Descripción del servicio</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cotizacion-card mt-4">
+        <h4>Formulario de Test</h4>
+        <div class="form-group">
+          <label>Campo de prueba</label>
+          <input type="text" class="form-control" placeholder="Escribe algo aquí">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Elementos de contacto -->
+    <section class="mb-5">
+      <h2>Elementos de Contacto</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="contacto-card text-center">
+            <i class="fas fa-phone contacto-icon"></i>
+            <h4>Contacto Test</h4>
+            <p>Información de contacto</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contacto-form-card mt-4">
+        <h4>Formulario de Contacto</h4>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" placeholder="tu@email.com">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Elementos de nosotros -->
+    <section class="mb-5">
+      <h2>Elementos de Nosotros</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="mision-card text-center">
+            <div class="card-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3>Misión Test</h3>
+            <p>Descripción de la misión</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="valor-card text-center">
+            <i class="fas fa-heart valor-icon"></i>
+            <h4>Valor Test</h4>
+            <p>Descripción del valor</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="tecnologia-card text-center">
+            <i class="fas fa-cog tecnologia-icon"></i>
+            <h5>Tecnología Test</h5>
+            <p>Descripción de la tecnología</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Botón de prueba -->
+    <div class="text-center">
+      <button class="btn btn-custom" onclick="testTheme()">Probar Cambio de Tema</button>
+      <button class="btn btn-outline-secondary ml-2" onclick="showCurrentTheme()">Mostrar Tema Actual</button>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="js/dark-mode.js"></script>
+  
+  <script>
+    function testTheme() {
+      const currentTheme = getCurrentTheme();
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+      console.log(`Tema cambiado de ${currentTheme} a ${newTheme}`);
+    }
+    
+    function showCurrentTheme() {
+      const theme = getCurrentTheme();
+      alert(`Tema actual: ${theme}`);
+    }
+    
+    // Escuchar cambios de tema
+    document.addEventListener('themeChanged', (event) => {
+      console.log('Tema cambiado a:', event.detail.theme);
+    });
+  </script>
+</body>
+</html>

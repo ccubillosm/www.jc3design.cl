@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Inicio | JC3Design </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/optimizacion.css">
+  <link rel="stylesheet" href="css/dark-mode.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    .carousel-item {
+      height: 70vh;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Estilos para videos */
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .video-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+    .video-btn {
+      background: rgba(255,255,255,0.8);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .video-btn:hover {
+      background: rgba(255,255,255,1);
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER: Contiene logo y navegación -->
+  <header role="banner" aria-label="Encabezado del sitio">
+    <!-- Logo -->
+    <div class="logo-container d-none d-md-flex" id="logoBox">
+      <img src="images/logo.png" alt="JC3Design logo" class="logo-img">
+    </div>
+
+    <!-- Navegación principal -->
+    <nav class="navbar-wrapper" data-aos="fade-left" role="navigation" aria-label="Navegación principal">
+      <nav class="navbar navbar-expand-md navbar-light navbar-custom">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-label="Alternar navegación">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mx-auto" role="menubar">
+              <li class="nav-item" data-aos="fade-right" role="none">
+                <a class="nav-link" href="index.html" role="menuitem">Inicio</a>
+              </li>
+              <li class="nav-item dropdown" data-aos="fade-right" role="none">
+                <a class="nav-link dropdown-toggle" href="index.html#" id="productosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menuitem">
+                  Productos
+                  <i class="fas fa-chevron-down ml-1 dropdown-arrow"></i>
+                </a>
+                <div class="dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="pag/productos.html?tipo=productos3d" role="menuitem">Piezas 3D</a>
+                  <a class="dropdown-item" href="pag/productos.html?tipo=muebles" role="menuitem">Muebles</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown" data-aos="fade-right" role="none">
+                <a class="nav-link dropdown-toggle" href="pag/cotizacion-diseno.html" id="serviciosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="menuitem">
+                  Servicios
+                  <i class="fas fa-chevron-down ml-1 dropdown-arrow"></i>
+                </a>
+                <div class="dropdown-menu" role="menu">
+                  <a class="dropdown-item" href="pag/cotizacion-diseno.html" role="menuitem">Cotización Diseño</a>
+                  <a class="dropdown-item" href="pag/cotizacion-mueble.html" role="menuitem">Cotización Mueble</a>
+                  <a class="dropdown-item" href="pag/cotizacion-3d.html" role="menuitem">Cotización 3D</a>
+                </div>
+              </li>
+              <li class="nav-item" data-aos="fade-right" role="none">
+                <a class="nav-link" href="pag/nosotros.html" role="menuitem">Nosotros</a>
+              </li>
+              <li class="nav-item" data-aos="fade-right" role="none">
+                <a class="nav-link" href="pag/contacto.html" role="menuitem">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </nav>
+  </header>
+
+  <!-- MAIN: Contenido principal -->
+  <main class="main-content" role="main" aria-label="Contenido principal">
+    <h1 class="sr-only">JC3Design - Inicio</h1>
+    
+    <!-- SECCIÓN: Carrusel hero -->
+    <section id="heroCarousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-wrap="true" aria-label="Carrusel de imágenes principales">
+      <ol class="carousel-indicators">
+        <li data-target="#heroCarousel" data-slide-to="0" class="active" aria-label="Imagen 1 de 3"></li>
+        <li data-target="#heroCarousel" data-slide-to="1" aria-label="Imagen 2 de 3"></li>
+        <li data-target="#heroCarousel" data-slide-to="2" aria-label="Imagen 3 de 3"></li>
+      </ol>          
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/carr_1.jpg" class="d-block w-100 carousel-image" alt="Calidad asegurada" loading="eager">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Calidad asegurada</h2>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/carr_2.jpg" class="d-block w-100 carousel-image" alt="Impresión 3D testeada" loading="lazy">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Impresión 3D testeada</h2>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="images/carr_3.jpg" class="d-block w-100 carousel-image" alt="Diseños dedicados" loading="lazy">
+          <div class="carousel-caption d-none d-md-block">
+            <h2>Diseños dedicados</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controles del carrusel -->
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev" aria-label="Anterior">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next" aria-label="Siguiente">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+      </a>
+    </section>
+
+    <!-- SECCIÓN: Video promocional -->
+    <section class="container mt-5" aria-labelledby="video-titulo">
+      <h2 id="video-titulo" class="text-center mb-4" data-aos="fade-up">CONOCE NUESTRO PROCESO</h2>
+      <div class="video-container" data-aos="fade-up">
+        <video id="promoVideo" preload="metadata" poster="images/construccion.webp">
+          <source src="videos/proceso-jc3design.mp4" type="video/mp4">
+          <source src="videos/proceso-jc3design.webm" type="video/webm">
+          Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="video-overlay" id="videoOverlay">
+          <i class="fas fa-play fa-3x"></i>
+        </div>
+        <div class="video-controls">
+          <button class="video-btn" id="playPauseBtn" aria-label="Reproducir video">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="video-btn" id="muteBtn" aria-label="Silenciar video">
+            <i class="fas fa-volume-up"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: Destacados -->
+    <section class="container mt-5" aria-labelledby="destacados-titulo">
+      <h2 id="destacados-titulo" class="text-center" data-aos="fade-up">DESTACADOS</h2>
+      <div class="row mt-4">
+        <article class="col-md-4" data-aos="fade-left">
+          <div class="card">
+            <img src="images/mueble_1.jpg" class="card-img-top responsive-image" alt="Muebles personalizados a medida">
+            <div class="card-body">
+              <h3 class="card-title text-center">MUEBLES A MEDIDA</h3>
+              <p class="card-text text-center">Catálogo de muebles personalizados.</p>
+              <div class="text-center mt-auto">
+                <a href="pag/productos.html?tipo=muebles" class="btn btn-custom">Ver más</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="col-md-4" data-aos="fade-left">
+          <div class="card">
+            <img src="images/p13w_jc3d.jpg" class="card-img-top responsive-image" alt="Productos 3D impresos">
+            <div class="card-body">
+              <h3 class="card-title text-center">LINEA 3D</h3>
+              <p class="card-text text-center">Catálogo de productos 3D.</p>
+              <div class="text-center mt-auto">
+                <a href="pag/productos.html?tipo=productos3d" class="btn btn-custom">Ver más</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="col-md-4" data-aos="fade-left">
+          <div class="card">
+            <img src="images/dise_1.jpg" class="card-img-top responsive-image" alt="Diseño de espacios personalizados">
+            <div class="card-body">
+              <h3 class="card-title text-center">DISEÑAMOS TU ESPACIO</h3>
+              <p class="card-text text-center">Hacemos realidad tus sueños.</p>
+              <div class="text-center mt-auto">
+                <a href="pag/productos.html" class="btn btn-custom">Ver más</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: Testimonios -->
+    <section class="container mt-5" aria-labelledby="testimonios-titulo">
+      <h2 id="testimonios-titulo" class="text-center mb-4" data-aos="fade-up">LO QUE DICEN NUESTROS CLIENTES</h2>
+      <div class="row">
+        <article class="col-md-6" data-aos="fade-right">
+          <blockquote class="blockquote">
+            <p class="mb-0">"Excelente calidad en los muebles. Superaron mis expectativas."</p>
+            <footer class="blockquote-footer">María González</footer>
+          </blockquote>
+        </article>
+        <article class="col-md-6" data-aos="fade-left">
+          <blockquote class="blockquote">
+            <p class="mb-0">"El diseño 3D me permitió visualizar perfectamente el resultado final."</p>
+            <footer class="blockquote-footer">Carlos Rodríguez</footer>
+          </blockquote>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER: Información de contacto y enlaces -->
+  <footer class="footer text-white mt-5" role="contentinfo" aria-label="Pie de página">
+    <div class="container py-4">
+      <div class="row">
+        <!-- Logo y nombre -->
+        <div class="col-md-4 mb-4 mb-md-0 d-flex align-items-center" data-aos="fade-right">
+          <img src="images/logo_blanco.png" alt="JC3Design Logo" class="footer-logo mr-2 logo-optimized">
+          <span class="h5 mb-0"></span>
+        </div>
+
+        <!-- Menú de navegación -->
+        <nav class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" role="navigation" aria-label="Enlaces del pie de página">
+          <h6 class="text-uppercase mb-3">Enlaces</h6>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="footer-link">Inicio</a></li>
+            <li><a href="pag/productos.html" class="footer-link">Productos</a></li>
+            <li><a href="pag/cotizacion-diseno.html" class="footer-link">Servicios</a></li>
+            <li><a href="pag/nosotros.html" class="footer-link">Nosotros</a></li>
+            <li><a href="pag/contacto.html" class="footer-link">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <!-- Redes sociales y contacto -->
+        <div class="col-md-4" data-aos="fade-up">
+          <h6 class="text-uppercase mb-3">Contáctanos</h6>
+          <ul class="list-unstyled">
+            <li><i class="fab fa-facebook-f mr-2"></i><a href="#" target="_blank" class="footer-link" aria-label="Síguenos en Facebook">Facebook</a></li>
+            <li><i class="fab fa-instagram mr-2"></i><a href="https://www.instagram.com/masters_muebles/" target="_blank" class="footer-link" aria-label="Síguenos en Instagram">Instagram</a></li>
+            <li><i class="fab fa-whatsapp mr-2"></i><a href="https://wa.me/+56912345678" target="_blank" class="footer-link" aria-label="Contáctanos por WhatsApp">WhatsApp</a></li>
+            <li><i class="fas fa-envelope mr-2"></i><a href="mailto:contacto@jc3design.cl" target="_blank" class="footer-link" aria-label="Envíanos un email">Email</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Mensaje final y Copyright -->
+      <div class="row footer-spacing" data-aos="fade-right">
+        <div class="col-12 text-center">
+          <p class="mensaje-empresa">"Diseñamos el futuro, amueblamos tu presente."</p>
+          <small>&copy; 2025 JC3Design - Desarrollado por Tomás Gutiérrez</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: false
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+  <script src="js/optimizacion.js"></script>
+  <script src="js/video-player.js"></script>
+  <script src="js/dark-mode.js"></script>
+  <script src="js/carrusel-fix.js"></script>
+
+</body>
+</html>

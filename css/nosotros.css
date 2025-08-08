@@ -1,0 +1,381 @@
+/* Estilos para página Nosotros */
+
+/* Hero Section */
+.hero-section {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  margin-bottom: 40px;
+}
+
+.hero-icon {
+  font-size: 4rem;
+  color: #e63946;
+  display: block;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Historia Section */
+.historia-section {
+  margin-bottom: 60px;
+}
+
+.historia-content {
+  padding-right: 30px;
+}
+
+.section-title {
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.historia-text {
+  color: #6c757d;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.logros {
+  margin-top: 30px;
+}
+
+.logro-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px 0;
+}
+
+.logro-item i {
+  color: #e63946;
+  font-size: 1.5rem;
+  margin-right: 15px;
+  width: 30px;
+}
+
+.logro-item span {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.historia-image img {
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.historia-image img:hover {
+  transform: scale(1.02);
+}
+
+/* Misión y Valores */
+.mision-valores-section {
+  margin-bottom: 60px;
+}
+
+.mision-card, .vision-card {
+  background: white;
+  border-radius: 15px;
+  padding: 40px 30px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 1px solid #e9ecef;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.mision-card:hover, .vision-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #e63946 0%, #c12738 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+}
+
+.card-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.mision-card h3, .vision-card h3 {
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mision-card p, .vision-card p {
+  color: #6c757d;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Valores Section */
+.valores-section {
+  margin-bottom: 60px;
+}
+
+.valor-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid #e9ecef;
+}
+
+.valor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.valor-icon {
+  font-size: 3rem;
+  color: #e63946;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.valor-card h4 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.valor-card p {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* Equipo Section */
+.equipo-section {
+  margin-bottom: 60px;
+}
+
+.equipo-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 1px solid #e9ecef;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.equipo-card:hover {
+  transform: translateY(-5px);
+}
+
+.equipo-avatar {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #e63946 0%, #c12738 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.equipo-avatar i {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.equipo-card h4 {
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cargo {
+  color: #e63946;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.descripcion {
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.especialidades {
+  margin-top: 20px;
+}
+
+.especialidades .badge {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+}
+
+/* Tecnologías Section */
+.tecnologias-section {
+  margin-bottom: 60px;
+}
+
+.tecnologia-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid #e9ecef;
+}
+
+.tecnologia-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.tecnologia-icon {
+  font-size: 2.5rem;
+  color: #e63946;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.tecnologia-card h5 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.tecnologia-card p {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #e63946 0%, #c12738 100%);
+  border-radius: 15px;
+  padding: 60px 40px;
+  color: white;
+  text-align: center;
+}
+
+.cta-content h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  margin-top: 30px;
+}
+
+.cta-buttons .btn-custom {
+  background: white;
+  color: #e63946;
+  border: none;
+  font-weight: 600;
+}
+
+.cta-buttons .btn-custom:hover {
+  background: #f8f9fa;
+  color: #c12738;
+  transform: translateY(-2px);
+}
+
+.cta-buttons .btn-outline-secondary {
+  border: 2px solid white;
+  color: white;
+  background: transparent;
+}
+
+.cta-buttons .btn-outline-secondary:hover {
+  background: white;
+  color: #e63946;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .historia-content {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .mision-card, .vision-card {
+    padding: 30px 20px;
+  }
+  
+  .cta-content h3 {
+    font-size: 2rem;
+  }
+  
+  .cta-content p {
+    font-size: 1rem;
+  }
+  
+  .cta-section {
+    padding: 40px 20px;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.historia-section,
+.mision-valores-section,
+.valores-section,
+.equipo-section,
+.tecnologias-section {
+  animation: fadeInUp 0.6s ease-out;
+}
