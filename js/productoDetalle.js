@@ -80,12 +80,43 @@ function renderizarProductoDetalle(producto) {
   // Asegurar que la imagen tenga la ruta correcta
   const imagenUrl = producto.imagen.startsWith('images/') ? `../${producto.imagen}` : producto.imagen;
   
+  // Preparar galería de imágenes adicionales
+  let galeriaHTML = '';
+  if (producto.imagenes && producto.imagenes.length > 0) {
+    galeriaHTML = `
+      <div class="product-gallery mt-3">
+        <h5 class="mb-3"><i class="fas fa-images mr-2"></i>Galería de imágenes</h5>
+        <div class="gallery-thumbnails">
+          ${producto.imagenes.map((img, index) => {
+            const imgUrl = img.imagen.startsWith('images/') ? `../${img.imagen}` : img.imagen;
+            return `
+              <div class="gallery-thumbnail" onclick="cambiarImagenPrincipal('${imgUrl}', '${img.imagen_alt || producto.nombre}')">
+                <img src="${imgUrl}" 
+                     alt="${img.imagen_alt || 'Imagen del producto'}" 
+                     class="gallery-image"
+                     onerror="this.src='../images/logo.png'">
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  }
+  
   contenedor.innerHTML = `
     <div class="row" data-aos="fade-up">
       <!-- Imagen del producto -->
       <div class="col-md-6 mb-4">
         <div class="card producto-detalle-card">
-          <img src="${imagenUrl}" class="card-img-top" alt="${producto.nombre}" style="max-height: 400px; object-fit: contain;" onerror="this.src='../images/logo.png'">
+          <div class="main-image-container">
+            <img src="${imagenUrl}" 
+                 id="main-product-image"
+                 class="card-img-top main-product-image" 
+                 alt="${producto.nombre}" 
+                 style="max-height: 400px; object-fit: contain;" 
+                 onerror="this.src='../images/logo.png'">
+          </div>
+          ${galeriaHTML}
         </div>
       </div>
       
@@ -141,6 +172,23 @@ function renderizarProductoDetalle(producto) {
       </div>
     </div>
   `;
+}
+
+/**
+ * Cambiar imagen principal
+ */
+function cambiarImagenPrincipal(nuevaImagen, nuevoAlt) {
+  const mainImage = document.getElementById('main-product-image');
+  if (mainImage) {
+    mainImage.src = nuevaImagen;
+    mainImage.alt = nuevoAlt;
+    
+    // Agregar efecto de transición
+    mainImage.style.opacity = '0.7';
+    setTimeout(() => {
+      mainImage.style.opacity = '1';
+    }, 200);
+  }
 }
 
 // Modal de contacto

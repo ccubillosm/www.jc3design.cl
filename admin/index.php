@@ -105,6 +105,9 @@ $categorias = $db->fetchAll("
                         <a class="nav-link" href="productos.php">
                             <i class="fas fa-box mr-2"></i>Productos
                         </a>
+                        <a class="nav-link" href="imagenes.php">
+                            <i class="fas fa-images mr-2"></i>Imágenes
+                        </a>
                         <a class="nav-link" href="categorias.php">
                             <i class="fas fa-tags mr-2"></i>Categorías
                         </a>

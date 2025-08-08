@@ -200,6 +200,15 @@ function logActivity($usuario_id, $accion, $tabla = null, $registro_id = null, $
     
     try {
         $db = getDB();
+        
+        // Verificar si el usuario_id existe en la tabla usuarios
+        if ($usuario_id) {
+            $userExists = $db->fetchOne("SELECT id FROM usuarios WHERE id = ?", [$usuario_id]);
+            if (!$userExists) {
+                $usuario_id = null; // Si el usuario no existe, usar null
+            }
+        }
+        
         $sql = "INSERT INTO logs (usuario_id, accion, tabla, registro_id, datos_anteriores, datos_nuevos, ip, user_agent) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
