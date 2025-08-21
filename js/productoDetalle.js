@@ -53,6 +53,9 @@ async function cargarProductoDetalle(id) {
     if (producto.error) {
       throw new Error(producto.error);
     }
+
+    // --- MEJORA SEO ---
+    actualizarMetaTags(producto);
     
     // Renderizar el producto
     renderizarProductoDetalle(producto);
@@ -77,6 +80,18 @@ async function cargarProductoDetalle(id) {
 function renderizarProductoDetalle(producto) {
   const contenedor = document.getElementById("producto-detalle");
   
+  // Breadcrumbs dinámicos para SEO y navegación
+  const breadcrumbs = `
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="productos.html">Productos</a></li>
+        <li class="breadcrumb-item"><a href="productos.html?categoria=${producto.categoria_slug}">${producto.categoria_nombre}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">${producto.nombre}</li>
+      </ol>
+    </nav>
+  `;
+
   // Asegurar que la imagen tenga la ruta correcta
   const imagenUrl = producto.imagen.startsWith('images/') ? `../${producto.imagen}` : producto.imagen;
   
@@ -104,6 +119,7 @@ function renderizarProductoDetalle(producto) {
   }
   
   contenedor.innerHTML = `
+    ${breadcrumbs}
     <div class="row" data-aos="fade-up">
       <!-- Imagen del producto -->
       <div class="col-md-6 mb-4">
@@ -172,6 +188,42 @@ function renderizarProductoDetalle(producto) {
       </div>
     </div>
   `;
+}
+
+/**
+ * Actualizar meta tags para SEO
+ */
+function actualizarMetaTags(producto) {
+  // 1. Actualizar el <title> de la página
+  document.title = `${producto.nombre} - JC3Design`;
+
+  // 2. Actualizar la <meta name="description">
+  let metaDescription = document.querySelector('meta[name="description"]');
+  if (!metaDescription) {
+    metaDescription = document.createElement('meta');
+    metaDescription.name = 'description';
+    document.head.appendChild(metaDescription);
+  }
+  // Crear una descripción corta y atractiva
+  const descripcionCorta = producto.descripcion.substring(0, 155).replace(/"/g, '&quot;') + '...';
+  metaDescription.content = `Descubre ${producto.nombre} en JC3Design. ${descripcionCorta} Cotiza ahora.`;
+
+  // 3. (Opcional) Actualizar meta tags para redes sociales (Open Graph)
+  actualizarMetaTag('og:title', `${producto.nombre} - JC3Design`);
+  actualizarMetaTag('og:description', descripcionCorta);
+  actualizarMetaTag('og:image', new URL(producto.imagen, window.location.href).href);
+  actualizarMetaTag('og:url', window.location.href);
+  actualizarMetaTag('og:type', 'product');
+}
+
+function actualizarMetaTag(property, content) {
+    let metaTag = document.querySelector(`meta[property='${property}']`);
+    if (!metaTag) {
+        metaTag = document.createElement('meta');
+        metaTag.setAttribute('property', property);
+        document.head.appendChild(metaTag);
+    }
+    metaTag.content = content;
 }
 
 /**

@@ -1,0 +1,14 @@
+# Permitir a todos los bots (user-agents) rastrear el sitio
+User-agent: *
+
+# Directorios que no deben ser rastreados
+Disallow: /admin/
+Disallow: /database/
+Disallow: /scripts/
+Disallow: /backups/
+
+# Permitir el rastreo de todos los demás directorios
+Allow: /
+
+# Ubicación del sitemap
+Sitemap: http://www.jc3design.cl/sitemap.xml
