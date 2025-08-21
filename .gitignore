@@ -1,2 +1,26 @@
 # Archivos generados dinámicamente
 sitemap.xml
+
+# Dependencias de Node.js
+node_modules/
+package-lock.json
+
+# Archivos de testing y reportes
+playwright-report/
+test-results/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración local
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# Archivos temporales
+*.tmp
+*.temp
