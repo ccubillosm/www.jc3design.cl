@@ -190,14 +190,70 @@ $categorias = $db->fetchAll("
     <script>
         function eliminarCategoria(id, totalProductos) {
             if (totalProductos > 0) {
-                alert('No se puede eliminar una categoría que tiene productos asociados. Primero mueve o elimina los productos.');
+                mostrarAlerta('No se puede eliminar una categoría que tiene productos asociados. Primero mueve o elimina los productos.', 'warning');
                 return;
             }
             
-            if (confirm('¿Estás seguro de que quieres eliminar esta categoría?')) {
-                // Aquí iría la lógica para eliminar la categoría
-                alert('Funcionalidad de eliminación en desarrollo');
+            if (confirm('¿Estás seguro de que quieres eliminar esta categoría? Esta acción no se puede deshacer.')) {
+                // Mostrar indicador de carga
+                const btn = event.target.closest('button');
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                btn.disabled = true;
+                
+                fetch(`../api/categorias.php?id=${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Eliminar fila de la tabla
+                        const row = btn.closest('tr');
+                        row.style.backgroundColor = '#d4edda';
+                        row.style.transition = 'background-color 0.5s';
+                        
+                        setTimeout(() => {
+                            row.remove();
+                            // Mostrar mensaje de éxito
+                            mostrarAlerta('Categoría eliminada correctamente', 'success');
+                        }, 500);
+                    } else {
+                        throw new Error(data.error || 'Error al eliminar categoría');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    mostrarAlerta(error.message, 'danger');
+                    // Restaurar botón
+                    btn.innerHTML = originalContent;
+                    btn.disabled = false;
+                });
             }
+        }
+        
+        function mostrarAlerta(mensaje, tipo) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${tipo} alert-dismissible fade show`;
+            alertDiv.innerHTML = `
+                ${mensaje}
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+            `;
+            
+            // Insertar después del header
+            const header = document.querySelector('.d-flex.justify-content-between');
+            header.parentNode.insertBefore(alertDiv, header.nextSibling);
+            
+            // Auto-ocultar después de 5 segundos
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 5000);
         }
     </script>
 </body>
