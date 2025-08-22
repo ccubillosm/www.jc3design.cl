@@ -288,6 +288,11 @@ $vendidas = $db->fetchOne("SELECT COUNT(*) as total FROM cotizaciones WHERE esta
                                                         <button class="btn btn-sm btn-outline-danger" onclick="eliminarCotizacion(<?php echo $cotizacion['id']; ?>)">
                                                             <i class="fas fa-trash"></i>
                                                         </button>
+                                                        
+                                                        <button class="btn btn-sm btn-outline-warning mt-1" onclick="abrirModalFijarPrecio(<?php echo $cotizacion['id']; ?>)">
+                                                            <i class="fas fa-dollar-sign"></i>
+                                                        </button>
+                                                        
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -317,6 +322,33 @@ $vendidas = $db->fetchOne("SELECT COUNT(*) as total FROM cotizaciones WHERE esta
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para fijar precio -->
+    <div class="modal fade" id="fijarPrecioModal" tabindex="-1" role="dialog" aria-labelledby="fijarPrecioModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="fijarPrecioModalLabel">Fijar Precio de Cotización</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formFijarPrecio">
+                        <input type="hidden" id="cotizacionIdPrecio">
+                        <div class="form-group">
+                            <label for="precioInput">Precio:</label>
+                            <input type="number" class="form-control" id="precioInput" placeholder="Ingrese el precio" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="guardarPrecio()">Guardar Precio</button>
                 </div>
             </div>
         </div>
@@ -456,6 +488,58 @@ $vendidas = $db->fetchOne("SELECT COUNT(*) as total FROM cotizaciones WHERE esta
                 case 'enviada': return 'info';
                 case 'vendida': return 'success';
                 default: return 'secondary';
+            }
+        }
+
+        let currentCotizacionId = null; // Para almacenar el ID de la cotización actual
+
+        async function abrirModalFijarPrecio(id) {
+            currentCotizacionId = id;
+            $('#precioInput').val(''); // Limpiar input por defecto
+
+            try {
+                const response = await fetch(`../api/cotizaciones.php?id=${id}`);
+                const cotizacion = await response.json();
+
+                if (response.ok && cotizacion.precio_cotizado) {
+                    $('#precioInput').val(parseInt(cotizacion.precio_cotizado));
+                }
+            } catch (error) {
+                console.error('Error al cargar precio de cotización:', error);
+            }
+            $('#fijarPrecioModal').modal('show');
+        }
+
+        async function guardarPrecio() {
+            const precio = $('#precioInput').val();
+            if (!precio) {
+                alert('Por favor, ingresa un precio.');
+                return;
+            }
+
+            try {
+                const response = await fetch('../api/cotizaciones.php', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: currentCotizacionId,
+                        precio_cotizado: precio
+                    })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Precio actualizado exitosamente');
+                    location.reload();
+                } else {
+                    alert('Error al actualizar el precio: ' + (result.message || 'Desconocido'));
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al actualizar el precio.');
             }
         }
         
