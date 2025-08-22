@@ -1,6 +1,76 @@
 // Optimización de Imágenes y Lazy Loading
+// Este archivo detecta automáticamente si se ejecuta desde la raíz del sitio o desde el directorio pag/
+// y ajusta las rutas de los recursos en consecuencia.
+
+// Función para detectar la ruta base del sitio
+function getBasePath() {
+  // Detectar si estamos en el directorio pag/ o en la raíz
+  const currentPath = window.location.pathname;
+  console.log('🔍 Pathname completo:', currentPath);
+  
+  // Si estamos en /pag/ o en cualquier subdirectorio de pag/
+  if (currentPath.includes('/pag/')) {
+    console.log('📍 Detectado directorio pag/, usando ruta relativa ../');
+    return '../';
+  }
+  
+  // Si estamos en la raíz o en cualquier otro directorio
+  console.log('📍 Detectada raíz del sitio, usando ruta relativa ./');
+  return './';
+}
+
+// Función helper para construir rutas
+function buildPath(relativePath) {
+  // Asegurarse de que BASE_PATH esté disponible
+  if (typeof window.BASE_PATH === 'undefined') {
+    console.warn('⚠️ BASE_PATH no está definido, usando ruta por defecto');
+    return relativePath;
+  }
+  
+  const fullPath = window.BASE_PATH + relativePath;
+  console.log(`🔗 Construyendo ruta: ${relativePath} → ${fullPath}`);
+  return fullPath;
+}
+
+// Función de prueba para verificar rutas
+function testPaths() {
+  console.log('🧪 === PRUEBA DE RUTAS ===');
+  console.log('Ruta base:', window.BASE_PATH);
+  console.log('Logo:', buildPath('images/logo.png'));
+  console.log('CSS:', buildPath('css/style.css'));
+  console.log('JS:', buildPath('js/script.js'));
+  console.log('Imagen carrusel:', buildPath('images/carr_2.jpg'));
+  
+  // Verificar URLs completas
+  const testUrls = [
+    'images/logo.png',
+    'css/style.css',
+    'js/script.js',
+    'images/carr_2.jpg'
+  ];
+  
+  console.log('🔗 URLs completas generadas:');
+  testUrls.forEach(path => {
+    const fullPath = buildPath(path);
+    const absoluteUrl = new URL(fullPath, window.location.href).href;
+    console.log(`  ${path} → ${fullPath} → ${absoluteUrl}`);
+  });
+  
+  console.log('========================');
+}
 
 document.addEventListener("DOMContentLoaded", function() {
+  // Inicializar la ruta base
+  window.BASE_PATH = getBasePath();
+  
+  // Debug: mostrar la ruta base en consola
+  console.log('🔧 Ruta base detectada:', window.BASE_PATH);
+  console.log('🔧 Pathname actual:', window.location.pathname);
+  console.log('🔧 URL completa:', window.location.href);
+  
+  // Ejecutar prueba de rutas
+  testPaths();
+  
   // Detectar soporte para WebP
   const webpSupported = detectWebPSupport();
   
@@ -126,15 +196,18 @@ function optimizeCarouselImages() {
 // Preload imágenes críticas
 function preloadCriticalImages() {
   const criticalImages = [
-    'images/logo.png',
-    'images/logo_blanco.png'
+    buildPath('images/logo.png'),
+    buildPath('images/logo_blanco.png')
   ];
+  
+  console.log('🖼️ Preload imágenes críticas:', criticalImages);
   
   criticalImages.forEach(src => {
     const link = document.createElement('link');
     link.rel = 'preload';
     link.as = 'image';
     link.href = src;
+    console.log(`📎 Creando preload para: ${src}`);
     document.head.appendChild(link);
   });
 }
@@ -269,15 +342,18 @@ function optimizeMemory() {
 function optimizeResourceLoading() {
   // Preload recursos críticos
   const criticalResources = [
-    { href: 'css/style.css', as: 'style' },
-    { href: 'js/script.js', as: 'script' }
+    { href: buildPath('css/style.css'), as: 'style' },
+    { href: buildPath('js/script.js'), as: 'script' }
   ];
+  
+  console.log('📚 Preload recursos críticos:', criticalResources);
   
   criticalResources.forEach(resource => {
     const link = document.createElement('link');
     link.rel = 'preload';
     link.as = resource.as;
     link.href = resource.href;
+    console.log(`📎 Creando preload para: ${resource.href} (${resource.as})`);
     document.head.appendChild(link);
   });
 }
@@ -346,17 +422,20 @@ function optimizeForConnection() {
 // Precargar recursos adicionales para conexiones rápidas
 function preloadAdditionalResources() {
   const additionalResources = [
-    'images/carr_2.jpg',
-    'images/carr_3.jpg',
-    'images/mueble_1.jpg',
-    'images/p13w_jc3d.jpg',
-    'images/dise_1.jpg'
+    buildPath('images/carr_2.jpg'),
+    buildPath('images/carr_3.jpg'),
+    buildPath('images/mueble_1.jpg'),
+    buildPath('images/p13w_jc3d.jpg'),
+    buildPath('images/dise_1.jpg')
   ];
+  
+  console.log('🖼️ Prefetch recursos adicionales:', additionalResources);
   
   additionalResources.forEach(src => {
     const link = document.createElement('link');
     link.rel = 'prefetch';
     link.href = src;
+    console.log(`📎 Creando prefetch para: ${src}`);
     document.head.appendChild(link);
   });
 }
@@ -423,7 +502,10 @@ window.ImageOptimizer = {
   optimizeVideos,
   optimizeForConnection,
   optimizeSEOAndAccessibility,
-  implementRealTimeOptimizations
+  implementRealTimeOptimizations,
+  buildPath,
+  getBasePath,
+  testPaths
 };
 
 // Inicializar optimizaciones adicionales

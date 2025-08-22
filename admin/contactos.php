@@ -29,6 +29,8 @@ $pageTitle = "Gestión de Contactos - Mini CRM";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/admin-dark-mode.css">
+    <link rel="stylesheet" href="../css/chart-dark-mode.css">
     <style>
         .admin-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -126,6 +128,9 @@ $pageTitle = "Gestión de Contactos - Mini CRM";
                     <p class="mb-0">Gestiona todas las consultas y contactos de clientes</p>
                 </div>
                 <div class="col-md-6 text-right">
+                    <a href="dashboard.php" class="btn btn-primary mr-2">
+                        <i class="fas fa-chart-line mr-1"></i>Dashboard de Ventas
+                    </a>
                     <a href="index.php" class="btn btn-light mr-2">
                         <i class="fas fa-arrow-left mr-1"></i>Volver al Dashboard
                     </a>
@@ -903,5 +908,6 @@ $pageTitle = "Gestión de Contactos - Mini CRM";
         // Información del usuario para JavaScript
         const usuario = <?php echo json_encode($usuario); ?>;
     </script>
+    <script src="../js/dark-mode.js"></script>
 </body>
 </html>

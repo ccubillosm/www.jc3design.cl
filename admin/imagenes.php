@@ -83,6 +83,8 @@ if (isset($_GET['eliminar'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/admin-dark-mode.css">
+    <link rel="stylesheet" href="../css/chart-dark-mode.css">
     <style>
         .admin-sidebar {
             min-height: 100vh;
@@ -132,8 +134,11 @@ if (isset($_GET['eliminar'])) {
                     </div>
                     
                     <nav class="nav flex-column">
+                        <a class="nav-link" href="dashboard.php">
+                            <i class="fas fa-chart-line mr-2"></i>Dashboard de Ventas
+                        </a>
                         <a class="nav-link" href="index.php">
-                            <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                            <i class="fas fa-tachometer-alt mr-2"></i>Panel Principal
                         </a>
                         <a class="nav-link" href="productos.php">
                             <i class="fas fa-box mr-2"></i>Productos
@@ -171,7 +176,12 @@ if (isset($_GET['eliminar'])) {
             <div class="col-md-9 col-lg-10">
                 <div class="admin-content p-4">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2><i class="fas fa-images mr-2"></i>Gestionar Imágenes de Productos</h2>
+                        <div>
+                            <h2 class="mb-0"><i class="fas fa-images mr-2"></i>Gestionar Imágenes de Productos</h2>
+                            <a href="dashboard.php" class="btn btn-outline-primary btn-sm mt-2">
+                                <i class="fas fa-chart-line mr-1"></i>Ver Dashboard de Ventas
+                            </a>
+                        </div>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#agregarImagenModal">
                             <i class="fas fa-plus mr-2"></i>Agregar Imagen
                         </button>
@@ -328,6 +338,7 @@ if (isset($_GET['eliminar'])) {
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/dark-mode.js"></script>
     <script>
         // Vista previa de imagen
         document.getElementById('imagen_url').addEventListener('input', function() {

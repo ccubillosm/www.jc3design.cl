@@ -31,6 +31,8 @@ $productos = $db->fetchAll("
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/admin-dark-mode.css">
+    <link rel="stylesheet" href="../css/chart-dark-mode.css">
     <style>
         .admin-sidebar {
             min-height: 100vh;
@@ -38,7 +40,7 @@ $productos = $db->fetchAll("
         }
         .admin-content {
             min-height: 100vh;
-            background-color: #f8f9fa;
+            background-color: var(--bg-secondary);
         }
         .nav-link {
             color: rgba(255,255,255,0.8);
@@ -67,11 +69,17 @@ $productos = $db->fetchAll("
                     </div>
                     
                     <nav class="nav flex-column">
+                        <a class="nav-link" href="dashboard.php">
+                            <i class="fas fa-chart-line mr-2"></i>Dashboard de Ventas
+                        </a>
                         <a class="nav-link" href="index.php">
-                            <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                            <i class="fas fa-tachometer-alt mr-2"></i>Panel Principal
                         </a>
                         <a class="nav-link active" href="productos.php">
                             <i class="fas fa-box mr-2"></i>Productos
+                        </a>
+                        <a class="nav-link" href="imagenes.php">
+                            <i class="fas fa-images mr-2"></i>Imágenes
                         </a>
                         <a class="nav-link" href="categorias.php">
                             <i class="fas fa-tags mr-2"></i>Categorías
@@ -107,6 +115,9 @@ $productos = $db->fetchAll("
                         <div>
                             <h2 class="mb-0">Gestionar Productos</h2>
                             <p class="text-muted mb-0">Administra el catálogo de productos</p>
+                            <a href="dashboard.php" class="btn btn-outline-primary btn-sm mt-2">
+                                <i class="fas fa-chart-line mr-1"></i>Ver Dashboard de Ventas
+                            </a>
                         </div>
                         <a href="nuevo_producto.php" class="btn btn-success">
                             <i class="fas fa-plus mr-2"></i>Nuevo Producto

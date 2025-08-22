@@ -1,0 +1,711 @@
+/* Modo Oscuro para Panel de Administración */
+
+/* Variables específicas para admin */
+:root {
+    --admin-bg-primary: #ffffff;
+    --admin-bg-secondary: #f8f9fa;
+    --admin-card-bg: #ffffff;
+    --admin-text-primary: #212529;
+    --admin-text-secondary: #6c757d;
+    --admin-border-color: #dee2e6;
+    --admin-shadow: rgba(0, 0, 0, 0.1);
+    --admin-shadow-light: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+    --admin-bg-primary: #1a1a1a;
+    --admin-bg-secondary: #2d2d2d;
+    --admin-card-bg: #2d2d2d;
+    --admin-text-primary: #ffffff;
+    --admin-text-secondary: #cccccc;
+    --admin-border-color: #404040;
+    --admin-shadow: rgba(0, 0, 0, 0.3);
+    --admin-shadow-light: rgba(0, 0, 0, 0.1);
+}
+
+/* Aplicar modo oscuro al contenido del admin */
+[data-theme="dark"] .admin-content {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+/* Cards del administrador */
+[data-theme="dark"] .card {
+    background-color: var(--admin-card-bg) !important;
+    border-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .card-header {
+    background-color: var(--admin-bg-secondary) !important;
+    border-bottom-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .card-title {
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .card-body {
+    color: var(--admin-text-primary) !important;
+}
+
+/* Tablas */
+[data-theme="dark"] .table {
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .table th {
+    background-color: var(--admin-bg-secondary) !important;
+    color: var(--admin-text-primary) !important;
+    border-color: var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .table td {
+    border-color: var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Formularios */
+[data-theme="dark"] .form-control {
+    background-color: var(--admin-bg-secondary) !important;
+    border-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .form-control:focus {
+    background-color: var(--admin-bg-secondary) !important;
+    border-color: #007bff !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .form-label,
+[data-theme="dark"] label {
+    color: var(--admin-text-primary) !important;
+}
+
+/* Botones */
+[data-theme="dark"] .btn-outline-primary {
+    border-color: #007bff !important;
+    color: #007bff !important;
+}
+
+[data-theme="dark"] .btn-outline-primary:hover {
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .btn-outline-success {
+    border-color: #28a745 !important;
+    color: #28a745 !important;
+}
+
+[data-theme="dark"] .btn-outline-success:hover {
+    background-color: #28a745 !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .btn-outline-danger {
+    border-color: #dc3545 !important;
+    color: #dc3545 !important;
+}
+
+[data-theme="dark"] .btn-outline-danger:hover {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .btn-outline-info {
+    border-color: #17a2b8 !important;
+    color: #17a2b8 !important;
+}
+
+[data-theme="dark"] .btn-outline-info:hover {
+    background-color: #17a2b8 !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .btn-outline-warning {
+    border-color: #ffc107 !important;
+    color: #ffc107 !important;
+}
+
+[data-theme="dark"] .btn-outline-warning:hover {
+    background-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+/* Badges */
+[data-theme="dark"] .badge-light {
+    background-color: var(--admin-bg-secondary) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .badge-secondary {
+    background-color: #6c757d !important;
+    color: white !important;
+}
+
+/* Textos */
+[data-theme="dark"] .text-muted {
+    color: var(--admin-text-secondary) !important;
+}
+
+[data-theme="dark"] .text-primary {
+    color: #007bff !important;
+}
+
+[data-theme="dark"] .text-success {
+    color: #28a745 !important;
+}
+
+[data-theme="dark"] .text-danger {
+    color: #dc3545 !important;
+}
+
+[data-theme="dark"] .text-warning {
+    color: #ffc107 !important;
+}
+
+[data-theme="dark"] .text-info {
+    color: #17a2b8 !important;
+}
+
+/* Alertas */
+[data-theme="dark"] .alert {
+    border-color: var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .alert-success {
+    background-color: rgba(40, 167, 69, 0.2) !important;
+    color: #28a745 !important;
+}
+
+[data-theme="dark"] .alert-danger {
+    background-color: rgba(220, 53, 69, 0.2) !important;
+    color: #dc3545 !important;
+}
+
+[data-theme="dark"] .alert-warning {
+    background-color: rgba(255, 193, 7, 0.2) !important;
+    color: #ffc107 !important;
+}
+
+[data-theme="dark"] .alert-info {
+    background-color: rgba(23, 162, 184, 0.2) !important;
+    color: #17a2b8 !important;
+}
+
+/* Modales */
+[data-theme="dark"] .modal-content {
+    background-color: var(--admin-card-bg) !important;
+    border-color: var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .modal-header {
+    border-bottom-color: var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .modal-footer {
+    border-top-color: var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .modal-title {
+    color: var(--admin-text-primary) !important;
+}
+
+/* Dropdowns */
+[data-theme="dark"] .dropdown-menu {
+    background-color: var(--admin-card-bg) !important;
+    border-color: var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .dropdown-item {
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .dropdown-item:hover {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+/* Paginación */
+[data-theme="dark"] .page-link {
+    background-color: var(--admin-card-bg) !important;
+    border-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .page-link:hover {
+    background-color: var(--admin-bg-secondary) !important;
+    border-color: var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .page-item.active .page-link {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+
+/* Input groups */
+[data-theme="dark"] .input-group-text {
+    background-color: var(--admin-bg-secondary) !important;
+    border-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+/* Listas */
+[data-theme="dark"] .list-group-item {
+    background-color: var(--admin-card-bg) !important;
+    border-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+/* Breadcrumbs */
+[data-theme="dark"] .breadcrumb {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+[data-theme="dark"] .breadcrumb-item + .breadcrumb-item::before {
+    color: var(--admin-text-secondary) !important;
+}
+
+/* Progress bars */
+[data-theme="dark"] .progress {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+/* Tooltips */
+[data-theme="dark"] .tooltip-inner {
+    background-color: var(--admin-card-bg) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .tooltip.bs-tooltip-top .arrow::before {
+    border-top-color: var(--admin-card-bg) !important;
+}
+
+/* Popovers */
+[data-theme="dark"] .popover {
+    background-color: var(--admin-card-bg) !important;
+    border-color: var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .popover-header {
+    background-color: var(--admin-bg-secondary) !important;
+    border-bottom-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .popover-body {
+    color: var(--admin-text-primary) !important;
+}
+
+/* Transiciones suaves */
+.admin-content *,
+.card *,
+.table *,
+.form-control,
+.btn,
+.badge,
+.alert,
+.modal-content *,
+.dropdown-menu * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA GRÁFICOS Y ELEMENTOS DEL DASHBOARD ===== */
+
+/* Contenedores de gráficos */
+[data-theme="dark"] .chart-container {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .chart-title {
+    color: var(--admin-text-primary) !important;
+}
+
+/* Contenedores específicos del dashboard */
+[data-theme="dark"] .metrics-container {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .metric-card {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .metric-value {
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .metric-label {
+    color: var(--admin-text-secondary) !important;
+}
+
+/* Contenedores de cotizaciones */
+[data-theme="dark"] .cotizaciones-card {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .cotizacion-item {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .cotizacion-item:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .cotizacion-time {
+    color: var(--admin-text-secondary) !important;
+}
+
+[data-theme="dark"] .cotizacion-number {
+    color: var(--admin-text-primary) !important;
+}
+
+/* Estado del sistema */
+[data-theme="dark"] .status-card {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .status-item {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .status-text {
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .status-time {
+    color: var(--admin-text-secondary) !important;
+}
+
+/* Barra de actualización */
+[data-theme="dark"] .update-bar {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .refresh-btn {
+    background-color: var(--admin-card-bg) !important;
+    border-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .refresh-btn:hover {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+/* Canvas de gráficos */
+[data-theme="dark"] canvas {
+    background-color: var(--admin-card-bg) !important;
+}
+
+/* Contenedores de métricas */
+[data-theme="dark"] .metrics-container {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .metric-card {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .metric-value {
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .metric-label {
+    color: var(--admin-text-secondary) !important;
+}
+
+/* Contenedores de cotizaciones */
+[data-theme="dark"] .cotizaciones-card {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .cotizacion-item {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .cotizacion-item:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .cotizacion-time {
+    color: var(--admin-text-secondary) !important;
+}
+
+[data-theme="dark"] .cotizacion-number {
+    color: var(--admin-text-primary) !important;
+}
+
+/* Estado del sistema */
+[data-theme="dark"] .status-card {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .status-item {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .status-text {
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .status-time {
+    color: var(--admin-text-secondary) !important;
+}
+
+/* Barra de actualización */
+[data-theme="dark"] .update-bar {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .refresh-btn {
+    background-color: var(--admin-card-bg) !important;
+    border-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .refresh-btn:hover {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA CONTACTOS ===== */
+
+/* Cards de estadísticas de contactos */
+[data-theme="dark"] .stats-card {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .stats-card.nuevo {
+    border-left-color: #28a745 !important;
+}
+
+[data-theme="dark"] .stats-card.contactado {
+    border-left-color: #17a2b8 !important;
+}
+
+[data-theme="dark"] .stats-card.en-proceso {
+    border-left-color: #ffc107 !important;
+}
+
+[data-theme="dark"] .stats-card.cerrado {
+    border-left-color: #6c757d !important;
+}
+
+/* Cards de contactos */
+[data-theme="dark"] .contacto-card {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .contacto-card:hover {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+/* Filtros de contactos */
+[data-theme="dark"] .filtros-section {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+/* Timeline de contactos */
+[data-theme="dark"] .timeline-item {
+    border-left-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .contacto-detail {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .timeline-item::before {
+    background-color: #007bff !important;
+}
+
+/* Elementos específicos de contactos */
+[data-theme="dark"] .contacto-info {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .contacto-actions {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .contacto-status {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+/* Paginación de contactos */
+[data-theme="dark"] .pagination {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .pagination .page-item .page-link {
+    background-color: var(--admin-card-bg) !important;
+    border-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .pagination .page-item.active .page-link {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .pagination .page-item .page-link:hover {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA PANEL PRINCIPAL ===== */
+
+/* Cards de estadísticas del panel principal */
+[data-theme="dark"] .stat-card {
+    background-color: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .stat-card:hover {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+/* Listas de productos y categorías */
+[data-theme="dark"] .list-unstyled li {
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .list-unstyled .badge {
+    background-color: var(--admin-bg-secondary) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+/* Contenedores específicos del panel principal */
+[data-theme="dark"] .admin-content {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+[data-theme="dark"] .container-fluid {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+[data-theme="dark"] .row {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+[data-theme="dark"] .col-md-9,
+[data-theme="dark"] .col-lg-10 {
+    background-color: var(--admin-bg-secondary) !important;
+}
+
+/* Elementos de texto específicos */
+[data-theme="dark"] .h3,
+[data-theme="dark"] .h4,
+[data-theme="dark"] .h5,
+[data-theme="dark"] .h6 {
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .text-muted {
+    color: var(--admin-text-secondary) !important;
+}
+
+[data-theme="dark"] .text-white-50 {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ===== ESTILOS PARA ELEMENTOS ESPECÍFICOS ===== */
+
+/* Contenedores de imágenes */
+[data-theme="dark"] .image-preview {
+    border: 1px solid var(--admin-border-color) !important;
+}
+
+/* Contenedores de logs */
+[data-theme="dark"] .logs-container {
+    background-color: var(--admin-card-bg) !important;
+}
+
+[data-theme="dark"] .log-entry {
+    background-color: var(--admin-bg-secondary) !important;
+    border: 1px solid var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+[data-theme="dark"] .log-entry:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Contenedores de productos */
+[data-theme="dark"] .product-image {
+    border: 1px solid var(--admin-border-color) !important;
+}
+
+/* ===== ESTILOS PARA ELEMENTOS DE FORMULARIO ESPECÍFICOS ===== */
+
+/* Input groups específicos */
+[data-theme="dark"] .input-group-append .btn {
+    background-color: var(--admin-bg-secondary) !important;
+    border-color: var(--admin-border-color) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+/* Selects específicos */
+[data-theme="dark"] select.form-control {
+    background-color: var(--admin-bg-secondary) !important;
+    color: var(--admin-text-primary) !important;
+}
+
+/* Checkboxes y radios */
+[data-theme="dark"] .form-check-input {
+    background-color: var(--admin-bg-secondary) !important;
+    border-color: var(--admin-border-color) !important;
+}
+
+[data-theme="dark"] .form-check-input:checked {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+
+[data-theme="dark"] .form-check-label {
+    color: var(--admin-text-primary) !important;
+}

@@ -54,6 +54,8 @@ $categorias = $db->fetchAll("
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/admin-dark-mode.css">
+    <link rel="stylesheet" href="../css/chart-dark-mode.css">
     <style>
         .admin-sidebar {
             min-height: 100vh;
@@ -99,8 +101,11 @@ $categorias = $db->fetchAll("
                     </div>
                     
                     <nav class="nav flex-column">
+                        <a class="nav-link" href="dashboard.php">
+                            <i class="fas fa-chart-line mr-2"></i>Dashboard de Ventas
+                        </a>
                         <a class="nav-link active" href="index.php">
-                            <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                            <i class="fas fa-tachometer-alt mr-2"></i>Panel Principal
                         </a>
                         <a class="nav-link" href="productos.php">
                             <i class="fas fa-box mr-2"></i>Productos
@@ -140,8 +145,11 @@ $categorias = $db->fetchAll("
                     <!-- Header -->
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <div>
-                            <h1 class="h3 mb-0">Dashboard</h1>
+                            <h1 class="h3 mb-0">Panel Principal</h1>
                             <p class="text-muted">Bienvenido al panel de administración</p>
+                            <a href="dashboard.php" class="btn btn-primary btn-sm">
+                                <i class="fas fa-chart-line mr-1"></i>Ver Dashboard de Ventas
+                            </a>
                         </div>
                         <div class="text-right">
                             <p class="mb-0"><strong>Usuario:</strong> <?php echo htmlspecialchars($_SESSION['user_name'] ?? 'Admin'); ?></p>

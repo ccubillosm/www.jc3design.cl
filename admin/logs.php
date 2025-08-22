@@ -36,6 +36,8 @@ $logs_semana = $db->fetchOne("SELECT COUNT(*) as total FROM logs WHERE created_a
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/admin-dark-mode.css">
+    <link rel="stylesheet" href="../css/chart-dark-mode.css">
     <style>
         .admin-sidebar {
             min-height: 100vh;
@@ -82,8 +84,11 @@ $logs_semana = $db->fetchOne("SELECT COUNT(*) as total FROM logs WHERE created_a
                     </div>
                     
                     <nav class="nav flex-column">
+                        <a class="nav-link" href="dashboard.php">
+                            <i class="fas fa-chart-line mr-2"></i>Dashboard de Ventas
+                        </a>
                         <a class="nav-link" href="index.php">
-                            <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                            <i class="fas fa-tachometer-alt mr-2"></i>Panel Principal
                         </a>
                         <a class="nav-link" href="productos.php">
                             <i class="fas fa-box mr-2"></i>Productos
@@ -102,6 +107,9 @@ $logs_semana = $db->fetchOne("SELECT COUNT(*) as total FROM logs WHERE created_a
                         </a>
                         <a class="nav-link active" href="logs.php">
                             <i class="fas fa-history mr-2"></i>Logs
+                        </a>
+                        <a class="nav-link" href="imagenes.php">
+                            <i class="fas fa-images mr-2"></i>Imágenes
                         </a>
                         <hr class="bg-white">
                         <a class="nav-link" href="../index.html" target="_blank">
@@ -122,6 +130,9 @@ $logs_semana = $db->fetchOne("SELECT COUNT(*) as total FROM logs WHERE created_a
                         <div>
                             <h2 class="mb-0">Logs de Actividad</h2>
                             <p class="text-muted mb-0">Registro de actividades del sistema</p>
+                            <a href="dashboard.php" class="btn btn-outline-primary btn-sm mt-2">
+                                <i class="fas fa-chart-line mr-1"></i>Ver Dashboard de Ventas
+                            </a>
                         </div>
                         <div>
                             <button class="btn btn-outline-secondary" onclick="exportarLogs()">

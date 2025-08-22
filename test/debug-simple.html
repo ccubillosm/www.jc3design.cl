@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Simple - Optimización JS</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .error { color: red; }
+        .success { color: green; }
+        .info { color: blue; }
+        pre { background: #f5f5f5; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>🐛 Debug Simple - Archivo optimizacion.js</h1>
+    
+    <h2>📍 Información de Ubicación</h2>
+    <div id="location-info"></div>
+    
+    <h2>📁 Verificación de Archivos</h2>
+    <div id="file-check"></div>
+    
+    <h2>🔧 Estado del Script</h2>
+    <div id="script-status"></div>
+    
+    <h2>📝 Consola</h2>
+    <div id="console-output" style="background: #000; color: #0f0; padding: 10px; font-family: monospace; height: 200px; overflow-y: auto;"></div>
+
+    <script>
+        // Mostrar información de ubicación
+        document.getElementById('location-info').innerHTML = `
+            <p><strong>URL:</strong> ${window.location.href}</p>
+            <p><strong>Pathname:</strong> ${window.location.pathname}</p>
+            <p><strong>Directorio actual:</strong> ${window.location.pathname.includes('/test/') ? 'test/' : 'otro'}</p>
+        `;
+        
+        // Verificar archivos
+        document.getElementById('file-check').innerHTML = `
+            <p><strong>Ruta del script:</strong> ../js/optimizacion.js</p>
+            <p><strong>Ruta absoluta esperada:</strong> ${new URL('../js/optimizacion.js', window.location.href).href}</p>
+        `;
+        
+        // Interceptar console.log
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        
+        function addToConsole(message, type = 'log') {
+            const output = document.getElementById('console-output');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? '#ff6b6b' : type === 'warn' ? '#ffd93d' : '#6bcf7f';
+            output.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToConsole(args.join(' '), 'log');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToConsole(args.join(' '), 'error');
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            addToConsole(args.join(' '), 'warn');
+        };
+        
+        // Verificar estado del script
+        function checkScriptStatus() {
+            const status = document.getElementById('script-status');
+            
+            if (window.ImageOptimizer) {
+                status.innerHTML = `
+                    <p class="success">✅ Script cargado correctamente</p>
+                    <p><strong>Funciones disponibles:</strong></p>
+                    <pre>${Object.keys(window.ImageOptimizer).join(', ')}</pre>
+                `;
+            } else {
+                status.innerHTML = `
+                    <p class="error">❌ Script NO cargado</p>
+                    <p><strong>Objeto ImageOptimizer:</strong> ${typeof window.ImageOptimizer}</p>
+                `;
+            }
+        }
+        
+        // Intentar cargar el script manualmente
+        function loadScriptManually() {
+            console.log('🔄 Intentando cargar script manualmente...');
+            
+            const script = document.createElement('script');
+            script.src = '../js/optimizacion.js';
+            script.onload = function() {
+                console.log('✅ Script cargado manualmente');
+                setTimeout(checkScriptStatus, 100);
+            };
+            script.onerror = function() {
+                console.error('❌ Error al cargar script manualmente');
+                checkScriptStatus();
+            };
+            
+            document.head.appendChild(script);
+        }
+        
+        // Verificar después de un tiempo
+        setTimeout(() => {
+            checkScriptStatus();
+            if (!window.ImageOptimizer) {
+                console.log('⚠️ Script no detectado, intentando cargar manualmente...');
+                loadScriptManually();
+            }
+        }, 2000);
+        
+        // Verificar cada segundo
+        setInterval(checkScriptStatus, 1000);
+        
+        console.log('🚀 Página cargada, iniciando debug...');
+    </script>
+    
+    <!-- Intentar cargar el script -->
+    <script src="../js/optimizacion.js" onload="console.log('✅ Script cargado con tag script')" onerror="console.error('❌ Error en tag script')"></script>
+</body>
+</html>

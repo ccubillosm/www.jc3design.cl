@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Debug - Optimización JS</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        button { padding: 10px 20px; margin: 5px; }
+        pre { background: #f5f5f5; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Debug - Versión Simplificada</h1>
+    
+    <h2>📍 Información de Ubicación</h2>
+    <div id="location-info"></div>
+    
+    <h2>🔧 Funciones de Debug</h2>
+    <button onclick="testPathDetection()">Probar Detección de Rutas</button>
+    <button onclick="testBuildPath()">Probar Construcción de Rutas</button>
+    <button onclick="testPreloadFunctions()">Probar Funciones de Preload</button>
+    <button onclick="clearConsole()">Limpiar Consola</button>
+    
+    <h2>📊 Resultados de las Pruebas</h2>
+    <div id="test-results"></div>
+    
+    <h2>📝 Salida de Consola</h2>
+    <div id="console-output" style="background: #000; color: #0f0; padding: 10px; font-family: monospace; height: 300px; overflow-y: auto;"></div>
+
+    <!-- Cargar la versión debug -->
+    <script src="js/optimizacion-debug.js"></script>
+    
+    <script>
+        // Interceptar console.log para mostrar en la página
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        
+        function addToConsoleOutput(message, type = 'log') {
+            const output = document.getElementById('console-output');
+            const timestamp = new Date().toLocaleTimeString();
+            const prefix = type === 'error' ? '❌' : type === 'warn' ? '⚠️' : 'ℹ️';
+            output.textContent += `[${timestamp}] ${prefix} ${message}\n`;
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToConsoleOutput(args.join(' '));
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToConsoleOutput(args.join(' '), 'error');
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            addToConsoleOutput(args.join(' '), 'warn');
+        };
+        
+        // Mostrar información de ubicación
+        function showLocationInfo() {
+            const locationInfo = document.getElementById('location-info');
+            locationInfo.innerHTML = `
+                <div class="info">
+                    <strong>URL Completa:</strong> ${window.location.href}
+                </div>
+                <div class="info">
+                    <strong>Pathname:</strong> ${window.location.pathname}
+                </div>
+                <div class="info">
+                    <strong>Directorio:</strong> ${window.location.pathname.includes('/pag/') ? 'pag/' : 'raíz'}
+                </div>
+            `;
+        }
+        
+        // Probar detección de rutas
+        function testPathDetection() {
+            const results = document.getElementById('test-results');
+            results.innerHTML = '';
+            
+            try {
+                if (window.ImageOptimizer && window.ImageOptimizer.getBasePath) {
+                    const basePath = window.ImageOptimizer.getBasePath();
+                    results.innerHTML += `
+                        <div class="success">
+                            ✅ Función getBasePath() disponible
+                        </div>
+                        <div class="info">
+                            📍 Ruta base detectada: ${basePath}
+                        </div>
+                    `;
+                } else {
+                    results.innerHTML += `
+                        <div class="error">
+                            ❌ Función getBasePath() no disponible
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                results.innerHTML += `
+                    <div class="error">
+                        ❌ Error al probar getBasePath(): ${error.message}
+                    </div>
+                `;
+            }
+        }
+        
+        // Probar construcción de rutas
+        function testBuildPath() {
+            const results = document.getElementById('test-results');
+            
+            try {
+                if (window.ImageOptimizer && window.ImageOptimizer.buildPath) {
+                    const testPaths = [
+                        'images/logo.png',
+                        'css/style.css',
+                        'js/script.js',
+                        'images/carr_2.jpg'
+                    ];
+                    
+                    results.innerHTML += `
+                        <div class="success">
+                            ✅ Función buildPath() disponible
+                        </div>
+                    `;
+                    
+                    testPaths.forEach(path => {
+                        const fullPath = window.ImageOptimizer.buildPath(path);
+                        results.innerHTML += `
+                            <div class="info">
+                                🔗 ${path} → ${fullPath}
+                            </div>
+                        `;
+                    });
+                } else {
+                    results.innerHTML += `
+                        <div class="error">
+                            ❌ Función buildPath() no disponible
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                results.innerHTML += `
+                    <div class="error">
+                        ❌ Error al probar buildPath(): ${error.message}
+                    </div>
+                `;
+            }
+        }
+        
+        // Probar funciones de preload
+        function testPreloadFunctions() {
+            const results = document.getElementById('test-results');
+            
+            try {
+                if (window.ImageOptimizer && window.ImageOptimizer.testPaths) {
+                    results.innerHTML += `
+                        <div class="success">
+                            ✅ Función testPaths() disponible
+                        </div>
+                    `;
+                    
+                    // Ejecutar la función de prueba
+                    window.ImageOptimizer.testPaths();
+                    
+                    results.innerHTML += `
+                        <div class="info">
+                            🔍 Revisa la consola para ver los resultados detallados
+                        </div>
+                    `;
+                } else {
+                    results.innerHTML += `
+                        <div class="error">
+                            ❌ Función testPaths() no disponible
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                results.innerHTML += `
+                    <div class="error">
+                        ❌ Error al probar funciones de preload: ${error.message}
+                    </div>
+                `;
+            }
+        }
+        
+        // Limpiar consola
+        function clearConsole() {
+            document.getElementById('console-output').textContent = '';
+        }
+        
+        // Inicializar cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            showLocationInfo();
+            
+            // Esperar un poco para que se cargue el archivo de optimización
+            setTimeout(() => {
+                if (window.ImageOptimizer) {
+                    document.getElementById('test-results').innerHTML = `
+                        <div class="success">
+                            ✅ Archivo optimizacion-debug.js cargado correctamente
+                        </div>
+                        <div class="info">
+                            🔧 Objeto ImageOptimizer disponible con ${Object.keys(window.ImageOptimizer).length} funciones
+                        </div>
+                        <pre>${Object.keys(window.ImageOptimizer).join(', ')}</pre>
+                    `;
+                } else {
+                    document.getElementById('test-results').innerHTML = `
+                        <div class="error">
+                            ❌ Archivo optimizacion-debug.js no se cargó correctamente
+                        </div>
+                        <div class="info">
+                            🔍 Revisa la consola para ver errores
+                        </div>
+                    `;
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Mínimo - JavaScript</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        button { padding: 10px 20px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Mínimo - JavaScript</h1>
+    
+    <h2>🔧 Funciones de Prueba</h2>
+    <button onclick="testMinimal()">Probar Función Mínima</button>
+    <button onclick="checkObject()">Verificar Objeto</button>
+    
+    <h2>📊 Resultados</h2>
+    <div id="results"></div>
+    
+    <h2>📝 Consola</h2>
+    <div id="console-output" style="background: #000; color: #0f0; padding: 10px; font-family: monospace; height: 200px; overflow-y: auto;"></div>
+
+    <!-- Cargar archivo mínimo -->
+    <script src="test-minimal.js"></script>
+    
+    <script>
+        // Interceptar console.log
+        const originalLog = console.log;
+        const originalError = console.error;
+        
+        function addToConsole(message, type = 'log') {
+            const output = document.getElementById('console-output');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? '#ff6b6b' : '#6bcf7f';
+            output.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToConsole(args.join(' '), 'log');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToConsole(args.join(' '), 'error');
+        };
+        
+        // Función de prueba
+        function testMinimal() {
+            const results = document.getElementById('results');
+            
+            if (window.TestMinimal && window.TestMinimal.testFunction) {
+                const result = window.TestMinimal.testFunction();
+                results.innerHTML = `
+                    <p class="success">✅ Función ejecutada: ${result}</p>
+                    <p class="info">Mensaje: ${window.TestMinimal.message}</p>
+                `;
+            } else {
+                results.innerHTML = `
+                    <p class="error">❌ Objeto TestMinimal no disponible</p>
+                `;
+            }
+        }
+        
+        // Verificar objeto
+        function checkObject() {
+            const results = document.getElementById('results');
+            
+            if (window.TestMinimal) {
+                results.innerHTML = `
+                    <p class="success">✅ Objeto TestMinimal disponible</p>
+                    <p class="info">Propiedades: ${Object.keys(window.TestMinimal).join(', ')}</p>
+                    <p class="info">Tipo: ${typeof window.TestMinimal}</p>
+                `;
+            } else {
+                results.innerHTML = `
+                    <p class="error">❌ Objeto TestMinimal no disponible</p>
+                `;
+            }
+        }
+        
+        // Verificar al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Página cargada');
+            
+            setTimeout(() => {
+                if (window.TestMinimal) {
+                    console.log('✅ TestMinimal cargado correctamente');
+                    checkObject();
+                } else {
+                    console.error('❌ TestMinimal no se cargó');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

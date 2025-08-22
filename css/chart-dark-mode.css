@@ -1,0 +1,234 @@
+/* Estilos para gráficos de Chart.js en modo oscuro */
+
+/* Variables para colores de gráficos en modo oscuro */
+:root {
+    --chart-bg-light: #ffffff;
+    --chart-text-light: #212529;
+    --chart-border-light: #dee2e6;
+    --chart-grid-light: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --chart-bg-dark: #2d2d2d;
+    --chart-text-dark: #ffffff;
+    --chart-border-dark: #404040;
+    --chart-grid-dark: rgba(255, 255, 255, 0.1);
+}
+
+/* Configuración global para Chart.js en modo oscuro */
+[data-theme="dark"] canvas {
+    background-color: var(--chart-bg-dark) !important;
+}
+
+/* Estilos específicos para contenedores de gráficos */
+[data-theme="dark"] .chart-container {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+}
+
+[data-theme="dark"] .chart-title {
+    color: var(--chart-text-dark) !important;
+}
+
+/* Estilos para elementos de gráficos específicos */
+[data-theme="dark"] .chartjs-tooltip {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+[data-theme="dark"] .chartjs-tooltip::before {
+    border-top-color: var(--chart-bg-dark) !important;
+}
+
+/* Estilos para leyendas de gráficos */
+[data-theme="dark"] .chart-legend {
+    color: var(--chart-text-dark) !important;
+}
+
+[data-theme="dark"] .chart-legend .legend-item {
+    color: var(--chart-text-dark) !important;
+}
+
+/* Estilos para tooltips personalizados */
+[data-theme="dark"] .custom-tooltip {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Estilos para elementos de navegación de gráficos */
+[data-theme="dark"] .chart-navigation {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+}
+
+[data-theme="dark"] .chart-navigation button {
+    background-color: var(--chart-bg-dark) !important;
+    border-color: var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+[data-theme="dark"] .chart-navigation button:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Estilos para controles de gráficos */
+[data-theme="dark"] .chart-controls {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+}
+
+[data-theme="dark"] .chart-controls select,
+[data-theme="dark"] .chart-controls input {
+    background-color: var(--chart-bg-dark) !important;
+    border-color: var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+/* Estilos para información de gráficos */
+[data-theme="dark"] .chart-info {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+[data-theme="dark"] .chart-info .info-label {
+    color: var(--chart-text-dark) !important;
+}
+
+[data-theme="dark"] .chart-info .info-value {
+    color: var(--chart-text-dark) !important;
+}
+
+/* Estilos para elementos de zoom y pan */
+[data-theme="dark"] .chart-zoom-controls {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+}
+
+[data-theme="dark"] .chart-zoom-controls button {
+    background-color: var(--chart-bg-dark) !important;
+    border-color: var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+[data-theme="dark"] .chart-zoom-controls button:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Estilos para elementos de exportación */
+[data-theme="dark"] .chart-export {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+}
+
+[data-theme="dark"] .chart-export button {
+    background-color: var(--chart-bg-dark) !important;
+    border-color: var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+[data-theme="dark"] .chart-export button:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Estilos para elementos de filtros de gráficos */
+[data-theme="dark"] .chart-filters {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+}
+
+[data-theme="dark"] .chart-filters label {
+    color: var(--chart-text-dark) !important;
+}
+
+[data-theme="dark"] .chart-filters input,
+[data-theme="dark"] .chart-filters select {
+    background-color: var(--chart-bg-dark) !important;
+    border-color: var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+/* Estilos para elementos de estadísticas de gráficos */
+[data-theme="dark"] .chart-stats {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+}
+
+[data-theme="dark"] .chart-stats .stat-item {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+[data-theme="dark"] .chart-stats .stat-label {
+    color: var(--chart-text-dark) !important;
+}
+
+[data-theme="dark"] .chart-stats .stat-value {
+    color: var(--chart-text-dark) !important;
+}
+
+/* Estilos para elementos de anotaciones */
+[data-theme="dark"] .chart-annotation {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+/* Estilos para elementos de comparación */
+[data-theme="dark"] .chart-comparison {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+}
+
+[data-theme="dark"] .chart-comparison .comparison-item {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+/* Estilos para elementos de tendencias */
+[data-theme="dark"] .chart-trends {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+}
+
+[data-theme="dark"] .chart-trends .trend-item {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+/* Estilos para elementos de alertas de gráficos */
+[data-theme="dark"] .chart-alert {
+    background-color: var(--chart-bg-dark) !important;
+    border: 1px solid var(--chart-border-dark) !important;
+    color: var(--chart-text-dark) !important;
+}
+
+[data-theme="dark"] .chart-alert.alert-success {
+    background-color: rgba(40, 167, 69, 0.2) !important;
+    border-color: #28a745 !important;
+    color: #28a745 !important;
+}
+
+[data-theme="dark"] .chart-alert.alert-warning {
+    background-color: rgba(255, 193, 7, 0.2) !important;
+    border-color: #ffc107 !important;
+    color: #ffc107 !important;
+}
+
+[data-theme="dark"] .chart-alert.alert-danger {
+    background-color: rgba(220, 53, 69, 0.2) !important;
+    border-color: #dc3545 !important;
+    color: #dc3545 !important;
+}
+
+[data-theme="dark"] .chart-alert.alert-info {
+    background-color: rgba(23, 162, 184, 0.2) !important;
+    border-color: #17a2b8 !important;
+    color: #17a2b8 !important;
+}

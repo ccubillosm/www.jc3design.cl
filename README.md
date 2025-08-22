@@ -517,6 +517,73 @@ php -S localhost:8000
 echo "define('DEBUG_MODE', true);" >> database/config.php
 ```
 
+## 🌍 Acceso desde Internet (Túneles de Desarrollo)
+
+> Usa SIEMPRE el mismo puerto para el servidor local y el túnel. En los ejemplos se usa 8080. Si prefieres 8000, reemplaza el número en todos los comandos.
+
+### 1) Levantar servidor local
+
+```bash
+# Cambia la ruta al directorio del proyecto si es necesario
+php -S localhost:8080 -t /Users/acidlabs/Desktop/escritorio/www.jc3design.cl
+```
+
+### 2) Exponer con LocalTunnel (rápido)
+
+```bash
+# Recomendado: forzar host local y usar un subdominio propio
+npx localtunnel --port 8080 --local-host localhost --subdomain jc3design
+
+# Si el subdominio ya está en uso o falla, prueba con otro
+npx localtunnel --port 8080 --local-host localhost --subdomain jc3design2
+```
+
+### 3) Verificación rápida
+
+```bash
+# Debe devolver 200
+curl -s -o /dev/null -w '%{http_code}\n' 'http://localhost:8080/api/productos.php?slug=productos3d'
+curl -s -o /dev/null -w '%{http_code}\n' 'https://<tu-subdominio>.loca.lt/api/productos.php?slug=productos3d'
+```
+
+### 4) Abrir páginas por túnel
+
+- Catálogo 3D: `https://<tu-subdominio>.loca.lt/pag/productos.html?tipo=productos3d`
+- Producto: `https://<tu-subdominio>.loca.lt/pag/producto.html?id=1`
+
+### 5) Solución de problemas (LocalTunnel)
+
+- “503 Tunnel Unavailable”: reinicia el túnel o cambia de subdominio. Problema conocido del servicio.
+  - Cerrar túneles previos:
+    ```bash
+    pkill -f localtunnel || true
+    ```
+  - Asegúrate de que 8080 está libre o mata el proceso:
+    ```bash
+    lsof -ti:8080 | xargs kill -9
+    ```
+  - Vuelve a abrir el servidor y el túnel (pasos 1 y 2).
+- Referencia del problema 503: [Localtunnel issue #699](https://github.com/localtunnel/localtunnel/issues/699)
+
+### 6) Alternativas más estables
+
+- Cloudflare Tunnel (muy estable, gratis):
+  ```bash
+  brew install cloudflared
+  cloudflared tunnel --url http://localhost:8080
+  # Usa la URL https que aparece (*.trycloudflare.com)
+  ```
+- Ngrok:
+  ```bash
+  brew install ngrok/ngrok/ngrok
+  ngrok http http://localhost:8080
+  ```
+
+### 7) Notas
+
+- El frontend usa rutas relativas (`../api/...`), por lo que no se requiere cambiar `APP_URL` para pruebas con túnel.
+- Las APIs ya exponen CORS abierto.
+
 ---
 
 ## ✅ Checklist de Post-Instalación
@@ -546,3 +613,137 @@ Tu sitio web JC3Design está ahora listo para usar. Accede a:
 - **Panel de administración**: admin/admin123
 
 Para cualquier consulta técnica o personalización adicional, no dudes en contactar al desarrollador.
+
+Configuracion de Tunnel
+
+🌐 Configuración y Uso de LocalTunnel para JC3Design
+�� Requisitos Previos
+✅ Node.js instalado
+✅ Proyecto JC3Design funcionando localmente
+✅ Terminal abierta
+🚀 Paso 1: Instalación de LocalTunnel
+Instalar LocalTunnel Globalmente
+Apply
+Run
+localtunnel
+Verificar Instalación
+Apply
+Run
+version
+⚙️ Paso 2: Configuración del Proyecto
+Navegar al Directorio del Proyecto
+Apply
+Run
+cl
+Verificar que el Proyecto Esté Listo
+Apply
+Run
+.
+�� Paso 3: Levantar Servidor PHP Local
+Opción A: Servidor PHP Simple
+Apply
+Run
+8080
+Opción B: Servidor PHP Accesible desde Red Local
+Apply
+Run
+8080
+Verificar que el Servidor Esté Funcionando
+Apply
+Run
+200
+�� Paso 4: Crear Túnel con LocalTunnel
+Crear Túnel Básico
+Apply
+Run
+8080
+Crear Túnel con Subdominio Personalizado
+Apply
+Run
+jc3design2
+Crear Túnel con Configuración Avanzada
+Apply
+Run
+localhost
+�� Paso 5: Acceso y Verificación
+URLs de Acceso
+Servidor Local: http://localhost:8080
+Túnel LocalTunnel: https://jc3design.loca.lt (o el que te asigne)
+Verificar Funcionamiento del Túnel
+Apply
+Run
+lt
+Verificar APIs del Proyecto
+Apply
+Run
+php
+🔧 Paso 6: Configuración Avanzada
+Archivo de Configuración LocalTunnel
+Apply
+Run
+json
+Contenido del archivo:
+Apply
+}
+Usar Configuración Personalizada
+Apply
+Run
+json
+🚨 Solución de Problemas Comunes
+Error: "503 Tunnel Unavailable"
+Apply
+Run
+jc3design
+Error: "Subdomain Already in Use"
+Apply
+Run
+jc3design
+Error: "Connection Refused"
+Apply
+Run
+8080
+📋 Script de Automatización
+Crear Script de Inicio Rápido
+Apply
+Run
+sh
+Contenido del script:
+Apply
+Run
+PORT
+Hacer el Script Ejecutable
+Apply
+Run
+sh
+Ejecutar Script
+Apply
+Run
+sh
+�� Flujo de Trabajo Recomendado
+1. Terminal 1: Servidor PHP
+Apply
+Run
+8080
+2. Terminal 2: Túnel LocalTunnel
+Apply
+Run
+jc3design
+3. Verificar Funcionamiento
+Local: http://localhost:8080
+Túnel: https://jc3design.loca.lt
+📊 Comandos de Verificación Rápida
+Apply
+Run
+"
+🌟 Ventajas de LocalTunnel
+✅ Gratis y sin registro
+✅ Rápido de configurar
+✅ HTTPS automático
+✅ Subdominios personalizables
+✅ Ideal para testing y demos
+📝 Notas Importantes
+🔄 Reiniciar túnel si hay problemas de conexión
+📱 Compartir URL del túnel para que otros accedan
+⏰ Túneles expiran después de inactividad prolongada
+🔒 No usar para producción, solo desarrollo/testing
+🎉 ¡Listo! Tu sitio JC3Design estará accesible desde internet a través del túnel LocalTunnel.
