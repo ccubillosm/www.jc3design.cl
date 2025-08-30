@@ -18,3 +18,38 @@ window.addEventListener('scroll', function () {
     });
   });
   
+  // Manejo de dropdowns en móvil
+  document.addEventListener('DOMContentLoaded', function() {
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+      // En móvil, convertir dropdowns en enlaces directos
+      const dropdownToggles = document.querySelectorAll('.nav-item.dropdown .dropdown-toggle');
+      
+      dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Determinar la ruta base según la página actual
+          const currentPath = window.location.pathname;
+          let basePath = '';
+          
+          if (currentPath.includes('/pag/')) {
+            basePath = 'pag/';
+          } else if (currentPath === '/' || currentPath.endsWith('index.html')) {
+            basePath = 'pag/';
+          }
+          
+          // Redirigir a la página principal de cada sección
+          const text = this.textContent.trim();
+          if (text.includes('Productos')) {
+            window.location.href = basePath + 'productos.html';
+          } else if (text.includes('Servicios')) {
+            window.location.href = basePath + 'cotizacion-diseno.html';
+          }
+        });
+      });
+    }
+  });
+  
