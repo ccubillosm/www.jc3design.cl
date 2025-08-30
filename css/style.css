@@ -250,7 +250,7 @@
   .main-content {
     position: relative;
     width: 100%;
-    margin-top: 20vh;
+    margin-top: 14vh !important;
   }
   .carousel-inner img {
     height: 70vh;
@@ -629,6 +629,52 @@
   
   .product-gallery h5 {
     font-size: 1rem;
+  }
+  
+  /* Ajustes para navbar en modo responsivo */
+  .navbar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    background-color: var(--navbar-bg, lch(100% 0.01 296.81 / 0.95));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    background-color: transparent;
+    z-index: 1031;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  
+  /* Ajuste para el contenido principal en móviles */
+  .main-content {
+    margin-top: 80px !important;
+    padding-top: 20px;
+  }
+  
+  /* Ocultar logo en móviles para evitar superposición */
+  .logo-container {
+    display: none !important;
   }
 }
 
