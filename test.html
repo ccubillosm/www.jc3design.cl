@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emoticón :v</title>
+  <style>
+    :root { --bg: #0f172a; --fg: #e2e8f0; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      display: grid;
+      place-items: center;
+      background: radial-gradient(1200px circle at 50% 40%, #1e293b 0%, var(--bg) 60%);
+      color: var(--fg);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .face {
+      font-size: clamp(48px, 12vw, 180px);
+      letter-spacing: 0.02em;
+      user-select: none;
+      text-shadow: 0 6px 18px rgba(0,0,0,.35);
+      transition: transform .2s ease, filter .2s ease;
+    }
+    .face:hover { transform: scale(1.06) rotate(-2deg); filter: brightness(1.1); }
+    .hint { margin-top: 1rem; opacity: .7; font-size: .95rem; }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="face">:v</div>
+    <div class="hint">pasa el cursor para un mini efecto</div>
+  </div>
+</body>
+</html>
